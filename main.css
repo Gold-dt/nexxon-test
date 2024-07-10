@@ -1,0 +1,137 @@
+.kep{
+    border-radius: 50%;
+  }
+  .kartya{
+    position: sticky;
+  }
+  .alcim{
+    font-weight: bold;
+    color: darkgreen;
+  }
+  .egyéb{
+    background-color: rgba(128, 128, 128, 0.44);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .font-style{
+    font-family: 'Times New Roman', Times, serif;
+    letter-spacing: 3px;
+    text-indent: 30px;
+    text-decoration: underline;
+  }
+  .font-styles{
+    font-family: 'Garamond ';
+    color: rgb(46, 46, 46);
+  }
+  .txt-decoff{
+    text-decoration: none;
+  }
+  
+  #mainNavigation a {
+    font-family: 'Cabin', sans-serif;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    text-shadow:1px 1px 2px rgba(0,0,0,0.4);
+  }
+  
+  .shade{
+    background-color: rgba(255, 255, 255, 0.034);
+    margin-inline: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  .dropdown-menu {
+    background:rgb(235, 167, 8);
+  }
+  a.dropdown-toggle {
+    color:#dfdfdf !important;
+  }
+  a.dropdown-item:hover {
+    color:rgb(0, 0, 0) !important;
+  }
+  .nav-item a{
+    color:#dfdfdf;
+  }
+  .nav-item a:hover {
+    color: yellow;
+    font-weight: bold;
+  }
+  .nav-item{
+    min-width:12vw;
+  }
+  #mainNavigation {
+    top:0;
+    left:0;
+    width:100%;
+    z-index:123;
+    padding-bottom:120px;
+    background-color: black;
+    color: white;
+    /*background: rgb(150,28,7);*/
+    /*background: linear-gradient(90deg, rgba(150,28,7,1) 0%, rgba(0,0,0,1) 100%);*/
+    //*background: linear-gradient(to right,  rgba(191, 209, 24) 0%,rgba(165, 153, 21) 78%); */
+    
+  }
+  #navbarNavDropdown.collapsing .navbar-nav,
+  #navbarNavDropdown.show .navbar-nav{
+    padding:12px;
+  }
+  .k{
+    height: 100px;
+    width: 100px;
+    
+    border-radius: 40px;
+  }
+  .l{
+    -webkit-text-stroke: 1px black;
+  }
+  .egyed1{
+    background-color: black !important;
+  }
+  .egyed2{
+    background: linear-gradient(90deg, rgba(31,29,29,1) 0%, rgba(150,28,7,1) 100%);
+  }
+  .accordion-item {
+    background-color: #000;
+  }
+  .kard{
+    background-color: #ffffff6a;
+    border-radius: 40px;
+    padding: 20px;
+    text-indent: 10px;
+    margin: 10px;
+  }
+  .navbar-toggler-icon {
+    background-image: url(/IMG/up-arrow-svgrepo-com.svg) !important;
+  }
+  .navbar-toggler-icon::after{
+    background-image: url(/IMG/up-arrow-svgrepo-com-forditva.svg) !important;
+  }
+  .dropdown-menu li {
+    position: relative;
+    }
+    .dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+    }
+    .dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+    }
+    .dropdown-menu > li:hover > .dropdown-submenu {
+    display: block;
+    }
+  .egyedi{
+    height: 300px;
+    width: 200px;
+  }
+  .text-white-egy{
+    color: rgb(0, 0, 0) !important;
+  }
