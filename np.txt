@@ -1,0 +1,54 @@
+                Szabályok a szerveren   
+ - 1. Tiszteld játékostársaidat, ők is élvezni szeretnék a játékot, akár csak Te!
+
+ - 2. Tiszteld az adminokat, ha szerinted igazságtalan döntést hoztak (kick,ban,mute stb.),
+azt a Help-Ticket szobában, Ticket indításával tudod jelenteni!
+ - 3. BÁRMIFÉLE csalás (script, cheat) azonnali bant von maga után!
+
+ - 4. Trollkodás (direkt afk, blokkolás stb.) kicket, esetenként bant von maga után!
+
+ - 5. TILOS bármiféle hírdetés (szerver, facebook, free ph acc stb.) !
+
+ - 6. Megalapozatlan !calladmin használata kitiltást vonhat maga után!
+
+ - 7. Admin rangra vonatkozó szabályok;
+-- ranggal való visszaélés annak elvételét, esetekben kitiltást von maga után.
+-- csalás rang elvételét, és szerverről való azonnali kitiltást eredményez.
+-- Elérhető parancsok: kick, ban, vote, mute, és VIP parancsok.
+
+ - 8. VIP rangra vonatkozó szabályok
+-- a rang mindössze 1 hónapra szól, melynek ára 650Ft.(30 napra, mely alól február kivétel; feb 1-től márc 1-ig.)
+-- ranggal való visszaélés annak elvételét, esetekben kitiltást von maga után.
+-- csalás rang elvételét, és szerverről való azonnali kitiltást eredményez.
+-- Elérhető parancsok: vipsystem, shop
+-- Az ár csak EGY kiválasztott szerverre vonatkozik
+
+ - 9. Bárkit akit a származása miatt gúnyolnak, bant von maga után (NINCS KIVÉTEL)!
+
+ - 10. Mikrofon használata 14 éves kor alatt NEM engedélyezett!
+
+ - 11. Multi-Account használata nem engedélyezett!
+
+ - 12. UB kérelem discordon kérhető!
+
+Szabályok discordon:
+1. Tiszteld játékostársaidat, ők is élvezni szeretnék a játékot, akár csak Te!
+2. Szobába való trollodás, szitkozódás (earape zene, más édesanyja szidása stb.) figyelmeztetést, esetenként bant von maga után!
+3. Ne floodolj!
+
+Az szabályzat nem elolvasása nem mentesít a büntetés alól!
+
+Jó szórakozást és kellemes időtöltést kívánunk a szerveren!
+ Kiadható ban időtartamok 
+1 - Cheatelés (aim, wallhack, antiaim stb.)
+-- Permanent
+2 - MultiAccount (kitiltás ideje alatt másik fiók használata a szerveren)
+-- Permanent
+3 - Szerver ócsárolása
+-- Permanent
+4 - Játékosok szidalmazása (kurva anyázás, társadalmi megkülönböztetés stb.)
+-- Figyelmeztetés, majd min. 1 óra
+5 - Voice chat abuse (zene voice chaten és egyebek)
+-- Figyelmeztetés, némítás , majd min. 30 perc
+6 - Sokszoros fake calladmin
+-- Figyelmeztetés, majd min. 30 perc
