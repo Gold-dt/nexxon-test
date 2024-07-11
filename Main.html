@@ -8,62 +8,104 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <link rel="shortcut icon" type="x-icon" href="/img/logo.png">
+
   <title>Nexxon AWP</title>
 </head>
 
 <body>
+  <div class="report-popup" id="reporter">
+    <h2 class="report-h2">#Nexxon Report System</h2>
+    
+    <div class="report" id="report">
+      <div class="form-report sign-in-report">
+        <form action="#">
+          <h1 class="report-h1">Report</h1><span style="position: absolute; top: 8px; right: 16px; font-size: 18px; cursor: pointer; border: 1px solid black; padding-inline: 6px; background-color: black; border-radius: 40px;" onclick="popup()">X</span>
+          <div class="social-report">
+            <a class="report-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a class="report-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a class="report-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>Steames accountoddal be kell legyél lépve</span>
+          <input class="report-input" type="text" placeholder="Leírás" />
+          <input class="report-input" type="password" placeholder="Játékos Steam ID-je" />
+          <input class="report-input" type="text" placeholder="Indok" />
+          <a class="report-a" href="#" style="color: rgb(163, 163, 163);">Minden mezőt ki kell tölteni</a>
+          <button>Elküldés</button>
+        </form>
+      </div>
+      <div class="overlay-report">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <h1>Üdvözöllek a report panelen</h1>
+            <p>Fölöslegesen ne reportolj senkit 😉</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div id="mainNavigation">
     <div class="shade">
-        <nav role="navigation">
-            <div class="py-3 text-center border-bottom">
-              <img src="/img/image.png" alt="" class="invert img-fluid k">
-            </div>
-          </nav>
-          <div class="navbar-expand-md">
-            <div class="navbar-dark text-center my-2">
-              <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
-              </button>
-            </div>
-            <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav mx-auto ">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/Főoldal.html">Rank</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="https://hu.wikipedia.org/wiki/%C3%89dess%C3%A9gek">Time</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="edessegek/palacsinta/temp/temp.html">Bans</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://hu.wikipedia.org/wiki/%C3%89dess%C3%A9gek">Mutes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/admin-panel/index.html">Admin</a>
-              </li>
-              </ul>
-            </div>
-          </div>
+      <nav role="navigation">
+        <div class="py-3 text-center border-bottom">
+          <img src="/img/image.png" alt="" class="invert img-fluid k">
+        </div>
+      </nav>
+      <div class="navbar-expand-md">
+        <div class="navbar-dark text-center my-2">
+          <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+          </button>
+        </div>
+        <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/Főoldal.html">Érdekességek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://hu.wikipedia.org/wiki/%C3%89dess%C3%A9gek">Szabályzat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="edessegek/palacsinta/temp/temp.html">Parancsok</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="report" onclick="popup()">Report</a>
+              <button id="sendWebhookBtn">Send Webhook</button>
+
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin-panel/index.html">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/test.html">Test</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin-panel/index.html">Server</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    
+
     <header>
       <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-6 col-md-8 mx-auto">
             <h1 class="fw-light">Nexxon AWP<h6><span class="badge bg-secondary">Community</span></h6>
             </h1>
-            <p class="lead text-light">Az összekevert palacsintatésztát merőkanállal – vagy közvetlenül a
-              keverőtálból – forró, esetleg olajozott, zsírozott serpenyőbe öntjük. Pár másodperc alatt a még folyékony
-              tésztát a serpenyőben finom „csuklókörzéssel” mozgatva egyenletesen szétfolyatjuk. Amikor az alsó oldala
-              megsült (ekkor ha kellően vékony, a tészta széle kezd elválni a serpenyőtől), megfordítjuk.</p>
+            <p class="lead text-light">Üdvözletem a Nexxon AWP szerveren szeretnél egy jó közöségben lenni. Fejlődni
+              AWP-zés szinten vagy csak barátaidal játszani akartok ez a szervertök életes erre. Ez a szerver más mint a
+              többi nem az az unalmas awp szerver ahol csak bhopolsz lövöd az elenfelet és még a késed is olyan mint egy
+              műanyag nem ér semmit. És még a vip ból se kapol semmi jót? Ezen a szerveren figyeltünk ezekre hogy ne
+              legyen unalmas a játék élményed.</p>
             <p>
               <a href="#" class="btn btn-warning my-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
                 class="btn btn-warning my-2">Galéria</a>
-              <a href="https://hu.wikipedia.org/wiki/Kezd%C5%91lap" class="btn btn-dark my-2">Wikipédia</a>
+              <a href="https://discord.gg/2Y6CSsPspF" class="btn btn-dark my-2">Discord</a>
               <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
               aria-hidden="true">
@@ -117,7 +159,7 @@
       <div class="row">
         <div class="col">
           <div class="kard">
-            <h1>Palacsinta</h1>
+            <h1>Egy két érdekes tudnivaló</h1>
             <hr>
             <p>
             <p class="alcim">Története </p>A palacsinta eredete a római korból származik, neve latinul placenta[2] volt.
@@ -174,7 +216,10 @@
                     </div>
                     <div class="col">
                       <p><code>Elkészítés:</code></p>
-                      <span>A tojásokat verjük fel egy nagyobb tálban. Szórjuk hozzá a lisztet, a cukrot, a sót és az olajat, majd dolgozzuk össze alaposan. Ezután fokozatosan adagoljuk hozzá a tejet is, miközben igyekezzünk szép simára keverni. A tésztát tegyük félre 15-20 percre pihenni, majd hevítsünk egy serpenyőben olajat, és süssük aranybarnára a palacsinták mindkét oldalát.</span>
+                      <span>A tojásokat verjük fel egy nagyobb tálban. Szórjuk hozzá a lisztet, a cukrot, a sót és az
+                        olajat, majd dolgozzuk össze alaposan. Ezután fokozatosan adagoljuk hozzá a tejet is, miközben
+                        igyekezzünk szép simára keverni. A tésztát tegyük félre 15-20 percre pihenni, majd hevítsünk egy
+                        serpenyőben olajat, és süssük aranybarnára a palacsinták mindkét oldalát.</span>
                     </div>
                   </div>
                   <div class="card bg-dark">
@@ -211,7 +256,12 @@
                     </div>
                     <div class="col">
                       <p><code>Elkészítés:</code></p>
-                      <span>Ha a kókuszolajunk szilárd halmazállapotú, akkor picit olvasszuk meg. Majd az összes hozzávalót tegyük egy turmix- vagy robotgépbe. Ha az így kapott tésztánk túl sűrű, öntsünk hozzá még egy kis növényi tejet vagy vizet. Kenjünk meg egy serpenyőt egy kevés kókuszolajjal, hevítsük fel, majd egy evőkanál segítségével helyezzünk bele két 8-10 cm átmérőjű palacsintának megfelelő tésztát. Mikor elkezdenek kis buborékok megjelenni a tetejükön, akkor egy spatulával fordítsuk meg őket, és süssük aranybarnára a másik oldalukat is!
+                      <span>Ha a kókuszolajunk szilárd halmazállapotú, akkor picit olvasszuk meg. Majd az összes
+                        hozzávalót tegyük egy turmix- vagy robotgépbe. Ha az így kapott tésztánk túl sűrű, öntsünk hozzá
+                        még egy kis növényi tejet vagy vizet. Kenjünk meg egy serpenyőt egy kevés kókuszolajjal,
+                        hevítsük fel, majd egy evőkanál segítségével helyezzünk bele két 8-10 cm átmérőjű palacsintának
+                        megfelelő tésztát. Mikor elkezdenek kis buborékok megjelenni a tetejükön, akkor egy spatulával
+                        fordítsuk meg őket, és süssük aranybarnára a másik oldalukat is!
                       </span>
                     </div>
                   </div>
@@ -250,7 +300,11 @@
                     </div>
                     <div class="col">
                       <p><code>Elkészítés:</code></p>
-                      <span class="z">A spenótot forró sós vízben fonnyasszuk meg, majd egy botmixer segítségével pürésítsük. Ha kicsit kihűlt, adagoljuk hozzá a többi hozzávalót, és keverjük csomómentesre. Pici olajjal megkent serpenyőben süssük ki palacsintákat. Fogyasztás előtt kenjük meg őket fokhagymás tejföllel vagy zsiradékon megfuttatott fokhagymával. Természetesen megtölthetjük sült zöldségekkel, sajttal, tükörtojással, salátával, vagy bármivel, amihez kedvünk szottyan.  
+                      <span class="z">A spenótot forró sós vízben fonnyasszuk meg, majd egy botmixer segítségével
+                        pürésítsük. Ha kicsit kihűlt, adagoljuk hozzá a többi hozzávalót, és keverjük csomómentesre.
+                        Pici olajjal megkent serpenyőben süssük ki palacsintákat. Fogyasztás előtt kenjük meg őket
+                        fokhagymás tejföllel vagy zsiradékon megfuttatott fokhagymával. Természetesen megtölthetjük sült
+                        zöldségekkel, sajttal, tükörtojással, salátával, vagy bármivel, amihez kedvünk szottyan.
                       </span>
                     </div>
                   </div>
@@ -440,7 +494,8 @@
                   <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Ausztria">Ausztria</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">Dél-Németország</a>
+                  <a class="dropdown-item"
+                    href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">Dél-Németország</a>
                 </li>
                 <li>
                   <a class="dropdown-item"
@@ -457,6 +512,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+  <script src="js/report.js"></script>
 </body>
 
 </html>
