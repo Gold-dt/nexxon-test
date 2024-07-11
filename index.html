@@ -16,881 +16,853 @@
 
 <body>
   <style>
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-  
-      a {
-        color: inherit;
-      }
-  
-      body {
-        font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-        background: black;
-        color: #fff;
-        overflow-x: hidden;
-        
-      }
-  
-  
-      /* INTRO SECTION
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    body {
+      font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+      background: black;
+      color: #fff;
+      overflow-x: hidden;
+
+    }
+
+
+    /* INTRO SECTION
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  
-      .intro {
-        background: #f45b69;
-        padding: 100px 0;
-      }
-  
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-        text-align: center;
-      }
-  
-      h1 {
-        font-size: 2.5rem;
-      }
-  
-  
-      /* TIMELINE
+
+    .intro {
+      background: #f45b69;
+      padding: 100px 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+
+    /* TIMELINE
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  
-      .timeline ul {
-        padding: 50px 0;
-      }
-  
-      .timeline ul li {
-        list-style-type: none;
-        position: relative;
-        width: 6px;
-        margin: 0 auto;
-        padding-top: 50px;
-        background: #fff;
-      }
-  
-      .timeline ul li::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: inherit;
-        z-index: 1;
-      }
-  
+
+    .timeline ul {
+      padding: 50px 0;
+    }
+
+    .timeline ul li {
+      list-style-type: none;
+      position: relative;
+      width: 6px;
+      margin: 0 auto;
+      padding-top: 50px;
+      background: #fff;
+    }
+
+    .timeline ul li::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: inherit;
+      z-index: 1;
+    }
+
+    .timeline ul li div {
+      position: relative;
+      bottom: 0;
+      width: 400px;
+      padding: 15px;
+      background: rgb(187, 184, 4);
+      color: black;
+    }
+
+    .timeline ul li div::before {
+      content: "";
+      position: absolute;
+      bottom: 7px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+
+    .timeline ul li:nth-child(odd) div {
+      left: 45px;
+    }
+
+    .timeline ul li:nth-child(odd) div::before {
+      left: -15px;
+      border-width: 8px 16px 8px 0;
+      border-color: transparent rgb(187, 184, 4) transparent transparent;
+    }
+
+    .timeline ul li:nth-child(even) div {
+      left: -439px;
+    }
+
+    .timeline ul li:nth-child(even) div::before {
+      right: -15px;
+      border-width: 8px 0 8px 16px;
+      border-color: transparent transparent transparent rgb(187, 184, 4);
+    }
+
+    time {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+
+    /* EFFECTS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    .timeline ul li::after {
+      transition: background 0.5s ease-in-out;
+    }
+
+    .timeline ul li.in-view::after {
+      background: rgb(187, 184, 4);
+    }
+
+    .timeline ul li div {
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .timeline ul li:nth-child(odd) div {
+      transform: translate3d(200px, 0, 0);
+    }
+
+    .timeline ul li:nth-child(even) div {
+      transform: translate3d(-200px, 0, 0);
+    }
+
+    .timeline ul li.in-view div {
+      transform: none;
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+    /* GENERAL MEDIA QUERIES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    @media screen and (max-width: 900px) {
       .timeline ul li div {
-        position: relative;
-        bottom: 0;
-        width: 400px;
-        padding: 15px;
-        background: rgb(187, 184, 4);
-        color: black;
+        width: 250px;
       }
-  
-      .timeline ul li div::before {
-        content: "";
-        position: absolute;
-        bottom: 7px;
-        width: 0;
-        height: 0;
-        border-style: solid;
+
+      .timeline ul li:nth-child(even) div {
+        left: -289px;
+        /*250+45-6*/
       }
-  
-      .timeline ul li:nth-child(odd) div {
+    }
+
+    @media screen and (max-width: 600px) {
+      .timeline ul li {
+        margin-left: 20px;
+      }
+
+      .timeline ul li div {
+        width: calc(100vw - 91px);
+      }
+
+      .timeline ul li:nth-child(even) div {
         left: 45px;
       }
-  
-      .timeline ul li:nth-child(odd) div::before {
+
+      .timeline ul li:nth-child(even) div::before {
         left: -15px;
         border-width: 8px 16px 8px 0;
         border-color: transparent rgb(187, 184, 4) transparent transparent;
       }
-  
-      .timeline ul li:nth-child(even) div {
-        left: -439px;
-      }
-  
-      .timeline ul li:nth-child(even) div::before {
-        right: -15px;
-        border-width: 8px 0 8px 16px;
-        border-color: transparent transparent transparent rgb(187, 184, 4);
-      }
-  
-      time {
-        display: block;
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 8px;
-      }
-  
-  
-      /* EFFECTS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  
-      .timeline ul li::after {
-        transition: background 0.5s ease-in-out;
-      }
-  
-      .timeline ul li.in-view::after {
-        background: rgb(187, 184, 4);
-      }
-  
-      .timeline ul li div {
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.5s ease-in-out;
-      }
-  
-      .timeline ul li:nth-child(odd) div {
-        transform: translate3d(200px, 0, 0);
-      }
-  
-      .timeline ul li:nth-child(even) div {
-        transform: translate3d(-200px, 0, 0);
-      }
-  
-      .timeline ul li.in-view div {
-        transform: none;
-        visibility: visible;
-        opacity: 1;
-      }
-  
-  
-      /* GENERAL MEDIA QUERIES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  
-      @media screen and (max-width: 900px) {
-        .timeline ul li div {
-          width: 250px;
-        }
-  
-        .timeline ul li:nth-child(even) div {
-          left: -289px;
-          /*250+45-6*/
-        }
-      }
-  
-      @media screen and (max-width: 600px) {
-        .timeline ul li {
-          margin-left: 20px;
-        }
-  
-        .timeline ul li div {
-          width: calc(100vw - 91px);
-        }
-  
-        .timeline ul li:nth-child(even) div {
-          left: 45px;
-        }
-  
-        .timeline ul li:nth-child(even) div::before {
-          left: -15px;
-          border-width: 8px 16px 8px 0;
-          border-color: transparent #f45b69 transparent transparent;
-        }
-      }
-  
-  
-      /* EXTRA/CLIP PATH STYLES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-      .timeline-clippy ul li::after {
-        width: 40px;
-        height: 40px;
-        border-radius: 0;
-      }
-  
-      .timeline-rhombus ul li::after {
-        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      }
-  
-      .timeline-rhombus ul li div::before {
-        bottom: 12px;
-      }
-  
-      .timeline-star ul li::after {
-        clip-path: polygon(50% 0%,
-            61% 35%,
-            98% 35%,
-            68% 57%,
-            79% 91%,
-            50% 70%,
-            21% 91%,
-            32% 57%,
-            2% 35%,
-            39% 35%);
-      }
-  
-      .timeline-heptagon ul li::after {
-        clip-path: polygon(50% 0%,
-            90% 20%,
-            100% 60%,
-            75% 100%,
-            25% 100%,
-            0% 60%,
-            10% 20%);
-      }
-  
-      .timeline-infinite ul li::after {
-        animation: scaleAnimation 2s infinite;
-      }
-  
-      @keyframes scaleAnimation {
-        0% {
-          transform: translateX(-50%) scale(1);
-        }
-  
-        50% {
-          transform: translateX(-50%) scale(1.25);
-        }
-  
-        100% {
-          transform: translateX(-50%) scale(1);
-        }
-      }
-  
-  
-      /* FOOTER STYLES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-      .page-footer {
-        position: fixed;
-        right: 0;
-        bottom: 20px;
-        display: flex;
-        align-items: center;
-        padding: 5px;
-        color: black;
-        background: rgba(255, 255, 255, 0.65);
-      }
-  
-      .page-footer a {
-        display: flex;
-        margin-left: 4px;
-      }
-    </style>
-<div class="report-popup" id="reporter">
-  
-  <div class="report" id="report">
-    <div class="form-report sign-in-report">
-      <form action="#">
-        <h1 class="report-h1">Report</h1><span style="position: absolute; top: 8px; right: 16px; font-size: 18px; cursor: pointer; border: 1px solid black; padding-inline: 6px; background-color: black; border-radius: 5px;" onclick="popup()">X</span>
-        <div class="social-report">
-          <a class="report-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a class="report-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a class="report-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <span>Steames accountoddal be kell legyél lépve</span>
-        <input class="report-input" type="text" placeholder="Leírás" />
-        <input class="report-input" type="password" placeholder="Játékos Steam ID-je" />
-        <input class="report-input" type="text" placeholder="Indok" />
-        <a class="report-a" href="#" style="color: rgb(163, 163, 163);">Minden mezőt ki kell tölteni</a>
-        <button id="sendWebhookBtn">Elküldés</button>
-      </form>
-    </div>
-    <div class="overlay-report">
-      <div class="overlay">
-        <div class="overlay-panel overlay-right">
-          <h1>Üdvözöllek a report panelen</h1>
-          <p>Fölöslegesen ne reportolj senkit 😉</p>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="mainNavigation">
-  <div class="shade">
-    <nav role="navigation">
-      <div class="py-3 text-center border-bottom">
-        <img src="/img/image.png" alt="" class="invert img-fluid k">
-      </div>
-    </nav>
-    <div class="navbar-expand-md">
-      <div class="navbar-dark text-center my-2">
-        <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-          aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
-        </button>
-      </div>
-      <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mx-auto ">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/Főoldal.html">Érdekességek</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://hu.wikipedia.org/wiki/%C3%89dess%C3%A9gek">Szabályzat</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="edessegek/palacsinta/temp/temp.html">Parancsok</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="report" onclick="popup()">Report</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin-panel/index.html">Admin</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/test.html">Test</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin-panel/index.html">Server</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <header>
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Nexxon AWP<h6><span class="badge bg-secondary">Community</span></h6>
-          </h1>
-          <p class="lead text-light">Üdvözletem a Nexxon AWP szerveren szeretnél egy jó közöségben lenni. Fejlődni
-            AWP-zés szinten vagy csak barátaidal játszani akartok ez a szervertök életes erre. Ez a szerver más mint a
-            többi nem az az unalmas awp szerver ahol csak bhopolsz lövöd az elenfelet és még a késed is olyan mint egy
-            műanyag nem ér semmit. És még a vip ból se kapol semmi jót? Ezen a szerveren figyeltünk ezekre hogy ne
-            legyen unalmas a játék élményed.</p>
-          <p>
-            <a href="#" class="btn btn-warning my-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
-              class="btn btn-warning my-2">Galéria</a>
-            <a href="https://discord.gg/2Y6CSsPspF" class="btn btn-dark my-2">Discord</a>
-            <!-- Modal -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content bg-dark text-white">
-                <div class="modal-header">
-                  <h5 class="modal-title bg-warning px-3 rounded-2 text-dark" id="exampleModalLabel">Galéria</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="img/galéria/gal1.png" class="d-block w-100 egyedi" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/galéria/gal2.png" class="d-block w-100 egyedi" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/galéria/gal3.png" class="d-block w-100 egyedi" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="img/galéria/gal4.png" class="d-block w-100 egyedi" alt="...">
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                      data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                      data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <p>Ezek a képek random lettek szedve a netről.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          </p>
-        </div>
-      </div>
-    </section>
-    <hr>
-  </header>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="kard">
-          <h1>Egy két érdekes tudnivaló</h1>
-          <hr>
-          <p>
-          <p class="alcim">Története </p>A palacsinta eredete a római korból származik, neve latinul placenta[2] volt.
-          A lepényszerű tésztát kerek kövön vagy a legendárium szerint bronzpajzson sütötték. Azonban tudni kell a
-          pajzsos sütésről, hogy a római legionáriusok pajzsa a Scutum valójában fából készült, akárcsak a Clipeus,
-          vagyis megkérdőjelezhető ennek igazságalapja. Összetétele liszt, víz és kevéske só volt. Nagyon fontos
-          szerepet játszott a római légiók ellátásában, mert hosszabb ideig eltartható volt. Ekkoriban nem édes
-          tölteléket használtak, hanem húsfélékkel fogyasztották. </p>
-          <p>A kutatások szerint a palacsinta a római légiók nyomán terjedhetett el a Duna medencéjében és tőle
-            nyugatabbra is, német, francia, angol vidékekre. Az első feljegyzéseket – amelyekben egy recept is
-            szerepelt – már 1439-ben lehetett olvasni. A palacsintakészítés első magyar nyelvű leírása az erdélyi
-            fejedelmi udvar főszakácsának a 16. század végén írt szakácskönyvében olvasható.</p>
-        </div>
-        <div class="kard szab mt-5" style="background-color: black;">
-          <h1>Szabályzat</h1>
-          <hr>
-          <p>
-          <p class="alcim">Története </p>A palacsinta eredete a római korból származik, neve latinul placenta[2] volt.
-          A lepényszerű tésztát kerek kövön vagy a legendárium szerint bronzpajzson sütötték. Azonban tudni kell a
-          pajzsos sütésről, hogy a római legionáriusok pajzsa a Scutum valójában fából készült, akárcsak a Clipeus,
-          vagyis megkérdőjelezhető ennek igazságalapja. Összetétele liszt, víz és kevéske só volt. Nagyon fontos
-          szerepet játszott a római légiók ellátásában, mert hosszabb ideig eltartható volt. Ekkoriban nem édes
-          tölteléket használtak, hanem húsfélékkel fogyasztották. </p>
-          <p>A kutatások szerint a palacsinta a római légiók nyomán terjedhetett el a Duna medencéjében és tőle
-            nyugatabbra is, német, francia, angol vidékekre. Az első feljegyzéseket – amelyekben egy recept is
-            szerepelt – már 1439-ben lehetett olvasni. A palacsintakészítés első magyar nyelvű leírása az erdélyi
-            fejedelmi udvar főszakácsának a 16. század végén írt szakácskönyvében olvasható.</p>
-        </div>
-        <p class="text-body bold">Receptek : </p>
-        <div class="accordion m-4" id="accordionExample">
-          <div class="accordion-item egyed">
-            <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button egyed2 text-light" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Recept #1
-              </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-              data-bs-parent="#accordionExample">
-              <div class="accordion-body  egyed1 text-white-50">
-                <p class="text-center"><strong>Hagyományos Palacsinta</strong></p>
-                <div class="row">
-                  <div class="col">
-                    <p><code>Hozzávalók:</code> </p>
-                    <ul>
-                      <li>20 dkg finomliszt</li>
-                      <li>4,5 dl tej</li>
-                      <li>2 db L-es tojás</li>
-                      <li>1 ek cukor</li>
-                      <li>1 ek étolaj</li>
-                      <li>1 nagy csipet só</li>
-                      <li>olaj a sütéshez</li>
-                    </ul>
-                  </div>
-                  <div class="col">
-                    <p><code>Elkészítés:</code></p>
-                    <span>A tojásokat verjük fel egy nagyobb tálban. Szórjuk hozzá a lisztet, a cukrot, a sót és az
-                      olajat, majd dolgozzuk össze alaposan. Ezután fokozatosan adagoljuk hozzá a tejet is, miközben
-                      igyekezzünk szép simára keverni. A tésztát tegyük félre 15-20 percre pihenni, majd hevítsünk egy
-                      serpenyőben olajat, és süssük aranybarnára a palacsinták mindkét oldalát.</span>
-                  </div>
-                </div>
-                <div class="card bg-dark">
-                  <div class="card-body bg-dark">
-                    <img src="img/r1.png" class="img-fluid" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-              <button class="accordion-button collapsed egyed2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Recept #2
-              </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-              data-bs-parent="#accordionExample">
-              <div class="accordion-body egyed1 text-white-50">
-                <p class="text-center"><strong>Egészséges amerikai palacsinta tej nélkül</strong></p>
-                <div class="row">
-                  <div class="col">
-                    <p><code>Hozzávalók:</code> </p>
-                    <ul>
-                      <li>2 db érett banán</li>
-                      <li>2 db tojás</li>
-                      <li>120 ml növényi tej (pl. mandulatej)</li>
-                      <li>120 gramm aprószemű zabpehely</li>
-                      <li>½ ek szódabikarbóna</li>
-                      <li>1 tk fahéj</li>
-                      <li>2 ek kókuszolaj</li>
-                    </ul>
-                  </div>
-                  <div class="col">
-                    <p><code>Elkészítés:</code></p>
-                    <span>Ha a kókuszolajunk szilárd halmazállapotú, akkor picit olvasszuk meg. Majd az összes
-                      hozzávalót tegyük egy turmix- vagy robotgépbe. Ha az így kapott tésztánk túl sűrű, öntsünk hozzá
-                      még egy kis növényi tejet vagy vizet. Kenjünk meg egy serpenyőt egy kevés kókuszolajjal,
-                      hevítsük fel, majd egy evőkanál segítségével helyezzünk bele két 8-10 cm átmérőjű palacsintának
-                      megfelelő tésztát. Mikor elkezdenek kis buborékok megjelenni a tetejükön, akkor egy spatulával
-                      fordítsuk meg őket, és süssük aranybarnára a másik oldalukat is!
-                    </span>
-                  </div>
-                </div>
-                <div class="card bg-dark">
-                  <div class="card-body bg-dark">
-                    <img src="img/r2.png" class="img-fluid" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="headingThree">
-              <button class="accordion-button collapsed egyed2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Recept #3
-              </button>
-            </h2>
-            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-              data-bs-parent="#accordionExample">
-              <div class="accordion-body egyed1 text-white-50">
-                <p class="text-center"><strong>Spenótos palacsinta</strong></p>
-                <div class="row">
-                  <div class="col">
-                    <p><code>Hozzávalók:</code> </p>
-                    <ul>
-                      <li>200 gramm friss spenót</li>
-                      <li>2 tojás</li>
-                      <li>25 dkg liszt</li>
-                      <li>3 dl tej</li>
-                      <li>3 dl szódavíz</li>
-                      <li>4 ek olaj</li>
-                      <li>1 kk só</li>
-                      <li>olaj a sütéshez</li>
-                    </ul>
-                  </div>
-                  <div class="col">
-                    <p><code>Elkészítés:</code></p>
-                    <span class="z">A spenótot forró sós vízben fonnyasszuk meg, majd egy botmixer segítségével
-                      pürésítsük. Ha kicsit kihűlt, adagoljuk hozzá a többi hozzávalót, és keverjük csomómentesre.
-                      Pici olajjal megkent serpenyőben süssük ki palacsintákat. Fogyasztás előtt kenjük meg őket
-                      fokhagymás tejföllel vagy zsiradékon megfuttatott fokhagymával. Természetesen megtölthetjük sült
-                      zöldségekkel, sajttal, tükörtojással, salátával, vagy bármivel, amihez kedvünk szottyan.
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 kartya">
-        <div class="egyéb sticky-md-top">
-          <h3>Elterjedés</h3>
-          <p class="bold font-style">Európa</p>
-          <ul>
-            <li><span class="font-style mx-2">Franciaország</span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/wiki/Franciaorsz%C3%A1g">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(crêpe)</span>
-              <p class="text-styles">
-                Franciaországban élesztővel és sok tojással alaposan kikevert tésztát használnak. Sütés után pikáns,
-                édes töltelékekkel töltik. A crêpe ropogós, vékony tésztájú. A vendégek összehajtva majd felgöngyölve
-                kapják, pikáns, forró, édes likőrös vagy citromos vajjal leöntve.</p>
-            </li>
-            <li><span class="mx-2 font-style">Lengyelország</span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/wiki/Lengyelorsz%C3%A1g">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(naleśniki)</span>
-              <p></p>
-            </li>
-            <li><span class="mx-2 font-style">Magyarország</span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(magyar)</span>
-              <p class="font-styles">Magyarországra jellemző a nagyon vékonyra sütött tészta, amit tojásból liszttel,
-                tejjel, csipetnyi sóval, esetleg pici cukorral és szódavízzel kevernek ki. Ízlés szerint kevéske
-                sütőpor vagy élesztő is kerülhet bele, és az általában alkalmazott étolaj helyett készülhet olvasztott
-                vajban is. Tölteléke változatos: cukros kakaópor, lekvár, (mazsolás) túró, fahéjas cukor.</p>
-            </li>
-            <li><span class="mx-2 font-style">Ausztria</span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/wiki/Ausztria">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(Palatschinken)</span>
-              <p></p>
-            </li>
-            <li><span class="mx-2 font-style">Dél-Németország</span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(Pfannkuchen)</span>
-              <p></p>
-            </li>
-            <li><span class="mx-2 font-style">Észak-Németország </span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(Eierkuchen)</span>
-              <p></p>
-            </li>
-            <li><span class="mx-2 font-style">Oroszország</span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/wiki/Oroszorsz%C3%A1g">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(blini)</span>
-              <p></p>
-            </li>
-          </ul>
-          <p class="bold font-style">Ausztrália</p>
-          <ul>
-            <li><span class="mx-2 font-style">Ausztrália</span><a class="txt-decoff" target="_blank"
-                href="https://hu.wikipedia.org/wiki/Ausztr%C3%A1lia_(orsz%C3%A1g)">
-                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                  <path
-                    d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                </svg>
-              </a><span class="mx-2 badge bg-secondary">(pikelet)</span>
-              <p></p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<section class="timeline">
-  <ul>
-    <li>
-      <div>
-        <time>1934</time> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At
-        vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1937</time> Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris
-        et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex
-        eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1943</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
-        mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1946</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
-        mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1956</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
-        mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1957</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
-        mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1967</time> Aenean condimentum odio a bibendum rhoncus. Ut mauris felis, volutpat eget porta faucibus,
-        euismod quis ante.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1977</time> Vestibulum porttitor lorem sed pharetra dignissim. Nulla maximus, dui a tristique iaculis,
-        quam dolor convallis enim, non dignissim ligula ipsum a turpis.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>1985</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
-        mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2000</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
-        mattis. Vestibulum id magna est.
-      </div>
-    </li>
-    <li>
-      <div>
-        <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
-        mattis. Vestibulum id magna est.
-      </div>
-    </li>
-  </ul>
-</section>
-<footer class="page-footer">
-  <span>Készítette</span>
-  <a href="#">
-    <img width="24" height="24" src="img/logo.png"
-      alt="George Martsoukos logo">
-  </a>
-</footer>
-<script>
-  (function () {
-"use strict";
-
-// define variables
-var items = document.querySelectorAll(".timeline li");
-
-// check if an element is in viewport
-// http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
-function isElementInViewport(el) {
-  var rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-
-function callbackFunc() {
-  for (var i = 0; i < items.length; i++) {
-    if (isElementInViewport(items[i])) {
-      items[i].classList.add("in-view");
     }
-  }
-}
 
-// listen for events
-window.addEventListener("load", callbackFunc);
-window.addEventListener("resize", callbackFunc);
-window.addEventListener("scroll", callbackFunc);
-})();
 
-</script>
-<footer>
-  <div class="collapse bg-dark" id="navbarHeader">
+    /* EXTRA/CLIP PATH STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .timeline-clippy ul li::after {
+      width: 40px;
+      height: 40px;
+      border-radius: 0;
+    }
+
+    .timeline-rhombus ul li::after {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    .timeline-rhombus ul li div::before {
+      bottom: 12px;
+    }
+
+    .timeline-star ul li::after {
+      clip-path: polygon(50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%);
+    }
+
+    .timeline-heptagon ul li::after {
+      clip-path: polygon(50% 0%,
+          90% 20%,
+          100% 60%,
+          75% 100%,
+          25% 100%,
+          0% 60%,
+          10% 20%);
+    }
+
+    .timeline-infinite ul li::after {
+      animation: scaleAnimation 2s infinite;
+    }
+
+    @keyframes scaleAnimation {
+      0% {
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        transform: translateX(-50%) scale(1.25);
+      }
+
+      100% {
+        transform: translateX(-50%) scale(1);
+      }
+    }
+
+
+    /* FOOTER STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+    .page-footer {
+      position: fixed;
+      right: 0;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      color: black;
+      background: rgba(255, 255, 255, 0.65);
+    }
+
+    .page-footer a {
+      display: flex;
+      margin-left: 4px;
+    }
+  </style>
+  <div class="report-popup" id="reporter">
+
+    <div class="report" id="report">
+      <div class="form-report sign-in-report">
+        <form action="#">
+          <h1 class="report-h1">Report</h1><span
+            style="position: absolute; top: 8px; right: 16px; font-size: 18px; cursor: pointer; border: 1px solid black; padding-inline: 6px; background-color: black; border-radius: 5px;"
+            onclick="popup()">X</span>
+          <div class="social-report">
+            <a class="report-a" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a class="report-a" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a class="report-a" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>Steames accountoddal be kell legyél lépve</span>
+          <input class="report-input" type="text" placeholder="Leírás" />
+          <input class="report-input" type="password" placeholder="Játékos Steam ID-je" />
+          <input class="report-input" type="text" placeholder="Indok" />
+          <a class="report-a" href="#" style="color: rgb(163, 163, 163);">Minden mezőt ki kell tölteni</a>
+          <button id="sendWebhookBtn">Elküldés</button>
+        </form>
+      </div>
+      <div class="overlay-report">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <h1>Üdvözöllek a report panelen</h1>
+            <p>Fölöslegesen ne reportolj senkit 😉</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="mainNavigation">
+    <div class="shade">
+      <nav role="navigation">
+        <div class="py-3 text-center border-bottom">
+          <img src="/img/image.png" alt="" class="invert img-fluid k">
+        </div>
+      </nav>
+      <div class="navbar-expand-md">
+        <div class="navbar-dark text-center my-2">
+          <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+          </button>
+        </div>
+        <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/Főoldal.html">Érdekességek</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://hu.wikipedia.org/wiki/%C3%89dess%C3%A9gek">Szabályzat</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="edessegek/palacsinta/temp/temp.html">Parancsok</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="report" onclick="popup()">Report</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin-panel/index.html">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/test.html">Test</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin-panel/index.html">Server</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Nexxon AWP<h6><span class="badge bg-secondary">Community</span></h6>
+            </h1>
+            <p class="lead text-light">Üdvözöllek a Nexxon AWP szerveren, ha szeretnél egy jó közöségben lenni, fejlődni
+              AWP-zés szinten vagy csak barátaidal játszani akartok ez a szervertök életes erre. Ez a szerver más mint a
+              többi nem az az unalmas awp szerver ahol csak bhopolsz lövöd az elenfelet és még a késed is olyan mint egy
+              műanyag nem ér semmit. És még a vip ból se kapol semmi jót? Ezen a szerveren figyeltünk ezekre hogy ne
+              legyen unalmas a játék élményed.</p>
+            <p>
+              <a href="#" class="btn btn-warning my-2" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                class="btn btn-warning my-2">Galéria</a>
+              <a href="https://discord.gg/2Y6CSsPspF" class="btn btn-dark my-2">Discord</a>
+              <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                  <div class="modal-header">
+                    <h5 class="modal-title bg-warning px-3 rounded-2 text-dark" id="exampleModalLabel">Galéria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="img/galéria/gal1.png" class="d-block w-100 egyedi" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="img/galéria/gal2.png" class="d-block w-100 egyedi" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="img/galéria/gal3.png" class="d-block w-100 egyedi" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                          <img src="img/galéria/gal4.png" class="d-block w-100 egyedi" alt="...">
+                        </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <p>Ezek a képek random lettek szedve a netről.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </p>
+          </div>
+        </div>
+      </section>
+      <hr>
+    </header>
     <div class="container">
       <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">Köszönöm hogy végignézted a weboldalt</h4>
-          <p class="text-muted">Ez a weboldal nagyrészben Bootstrap 5 felhasználásával készült elemenként. A linkeket
-            illetve az egyéb hivatkozásokat a <code>Forrás</code>okra kattintva tudja megtekinteni.
-          </p>
+        <div class="col">
+          <div class="kard">
+            <h1>Egy két érdekes tudnivaló</h1>
+            <hr>
+            <p>
+            <p class="alcim">Története </p>A palacsinta eredete a római korból származik, neve latinul placenta[2] volt.
+            A lepényszerű tésztát kerek kövön vagy a legendárium szerint bronzpajzson sütötték. Azonban tudni kell a
+            pajzsos sütésről, hogy a római legionáriusok pajzsa a Scutum valójában fából készült, akárcsak a Clipeus,
+            vagyis megkérdőjelezhető ennek igazságalapja. Összetétele liszt, víz és kevéske só volt. Nagyon fontos
+            szerepet játszott a római légiók ellátásában, mert hosszabb ideig eltartható volt. Ekkoriban nem édes
+            tölteléket használtak, hanem húsfélékkel fogyasztották. </p>
+            <p>A kutatások szerint a palacsinta a római légiók nyomán terjedhetett el a Duna medencéjében és tőle
+              nyugatabbra is, német, francia, angol vidékekre. Az első feljegyzéseket – amelyekben egy recept is
+              szerepelt – már 1439-ben lehetett olvasni. A palacsintakészítés első magyar nyelvű leírása az erdélyi
+              fejedelmi udvar főszakácsának a 16. század végén írt szakácskönyvében olvasható.</p>
+          </div>
+          <div class="kard szab mt-5" style="background-color: black;">
+            <h1>Szabályzat</h1>
+            <hr>
+            <p>
+            <p class="alcim">Története </p>A palacsinta eredete a római korból származik, neve latinul placenta[2] volt.
+            A lepényszerű tésztát kerek kövön vagy a legendárium szerint bronzpajzson sütötték. Azonban tudni kell a
+            pajzsos sütésről, hogy a római legionáriusok pajzsa a Scutum valójában fából készült, akárcsak a Clipeus,
+            vagyis megkérdőjelezhető ennek igazságalapja. Összetétele liszt, víz és kevéske só volt. Nagyon fontos
+            szerepet játszott a római légiók ellátásában, mert hosszabb ideig eltartható volt. Ekkoriban nem édes
+            tölteléket használtak, hanem húsfélékkel fogyasztották. </p>
+            <p>A kutatások szerint a palacsinta a római légiók nyomán terjedhetett el a Duna medencéjében és tőle
+              nyugatabbra is, német, francia, angol vidékekre. Az első feljegyzéseket – amelyekben egy recept is
+              szerepelt – már 1439-ben lehetett olvasni. A palacsintakészítés első magyar nyelvű leírása az erdélyi
+              fejedelmi udvar főszakácsának a 16. század végén írt szakácskönyvében olvasható.</p>
+          </div>
+          <p class="text-body bold">Receptek : </p>
+          <div class="accordion m-4" id="accordionExample">
+            <div class="accordion-item egyed">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button egyed2 text-light" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Recept #1
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body  egyed1 text-white-50">
+                  <p class="text-center"><strong>Hagyományos Palacsinta</strong></p>
+                  <div class="row">
+                    <div class="col">
+                      <p><code>Hozzávalók:</code> </p>
+                      <ul>
+                        <li>20 dkg finomliszt</li>
+                        <li>4,5 dl tej</li>
+                        <li>2 db L-es tojás</li>
+                        <li>1 ek cukor</li>
+                        <li>1 ek étolaj</li>
+                        <li>1 nagy csipet só</li>
+                        <li>olaj a sütéshez</li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <p><code>Elkészítés:</code></p>
+                      <span>A tojásokat verjük fel egy nagyobb tálban. Szórjuk hozzá a lisztet, a cukrot, a sót és az
+                        olajat, majd dolgozzuk össze alaposan. Ezután fokozatosan adagoljuk hozzá a tejet is, miközben
+                        igyekezzünk szép simára keverni. A tésztát tegyük félre 15-20 percre pihenni, majd hevítsünk egy
+                        serpenyőben olajat, és süssük aranybarnára a palacsinták mindkét oldalát.</span>
+                    </div>
+                  </div>
+                  <div class="card bg-dark">
+                    <div class="card-body bg-dark">
+                      <img src="img/r1.png" class="img-fluid" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed egyed2" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Recept #2
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body egyed1 text-white-50">
+                  <p class="text-center"><strong>Egészséges amerikai palacsinta tej nélkül</strong></p>
+                  <div class="row">
+                    <div class="col">
+                      <p><code>Hozzávalók:</code> </p>
+                      <ul>
+                        <li>2 db érett banán</li>
+                        <li>2 db tojás</li>
+                        <li>120 ml növényi tej (pl. mandulatej)</li>
+                        <li>120 gramm aprószemű zabpehely</li>
+                        <li>½ ek szódabikarbóna</li>
+                        <li>1 tk fahéj</li>
+                        <li>2 ek kókuszolaj</li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <p><code>Elkészítés:</code></p>
+                      <span>Ha a kókuszolajunk szilárd halmazállapotú, akkor picit olvasszuk meg. Majd az összes
+                        hozzávalót tegyük egy turmix- vagy robotgépbe. Ha az így kapott tésztánk túl sűrű, öntsünk hozzá
+                        még egy kis növényi tejet vagy vizet. Kenjünk meg egy serpenyőt egy kevés kókuszolajjal,
+                        hevítsük fel, majd egy evőkanál segítségével helyezzünk bele két 8-10 cm átmérőjű palacsintának
+                        megfelelő tésztát. Mikor elkezdenek kis buborékok megjelenni a tetejükön, akkor egy spatulával
+                        fordítsuk meg őket, és süssük aranybarnára a másik oldalukat is!
+                      </span>
+                    </div>
+                  </div>
+                  <div class="card bg-dark">
+                    <div class="card-body bg-dark">
+                      <img src="img/r2.png" class="img-fluid" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed egyed2" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Recept #3
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body egyed1 text-white-50">
+                  <p class="text-center"><strong>Spenótos palacsinta</strong></p>
+                  <div class="row">
+                    <div class="col">
+                      <p><code>Hozzávalók:</code> </p>
+                      <ul>
+                        <li>200 gramm friss spenót</li>
+                        <li>2 tojás</li>
+                        <li>25 dkg liszt</li>
+                        <li>3 dl tej</li>
+                        <li>3 dl szódavíz</li>
+                        <li>4 ek olaj</li>
+                        <li>1 kk só</li>
+                        <li>olaj a sütéshez</li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <p><code>Elkészítés:</code></p>
+                      <span class="z">A spenótot forró sós vízben fonnyasszuk meg, majd egy botmixer segítségével
+                        pürésítsük. Ha kicsit kihűlt, adagoljuk hozzá a többi hozzávalót, és keverjük csomómentesre.
+                        Pici olajjal megkent serpenyőben süssük ki palacsintákat. Fogyasztás előtt kenjük meg őket
+                        fokhagymás tejföllel vagy zsiradékon megfuttatott fokhagymával. Természetesen megtölthetjük sült
+                        zöldségekkel, sajttal, tükörtojással, salátával, vagy bármivel, amihez kedvünk szottyan.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Egyéb</h4>
-          <ul class="list-unstyled">
-            <li><a href="www.w3schools.com" class="text-white">w3schools</a></li>
-            <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" class="text-white">Bootstrap
-                5</a></li>
-            <li><a class="text-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-                aria-controls="offcanvasExample">
-                Forrás
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
-          viewBox="0 0 24 24">
-          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-          <circle cx="12" cy="13" r="4" />
-        </svg>
-        <strong>Rólunk</strong>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-        aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
+        <div class="col-md-4 kartya">
+          <div class="egyéb sticky-md-top">
+            <h3 class="text-center">Szerver Információk</h3>
+            <p class="bold font-style text-center" style="margin-right: 40px;">Európa</p>
+            <ul>
+              <li> <span>Server ip: <span> 95.138.193.253:30002</span></span>
+              </li>
+              <li><span class="mx-2 font-style"
+                  style="color: rgb(127, 172, 255); text-decoration: none; font-size: 20px;">Discord</span><a
+                  class="txt-decoff" target="_blank" href="https://discord.gg/2Y6CSsPspF">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 640 512">
+                    <path
+                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
+                  </svg>
+                </a><span class="mx-2 badge bg-secondary">(community)</span>
+                <p></p>
+              </li>
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Források</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div>
-        A weboldalon felhasznált linekek,képek,információk!
-      </div>
-      <div class="dropdown mt-3">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-          data-bs-toggle="dropdown">
-          Linkek
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Palacsinta">Palacsinta Wikipedia</a>
-          </li>
-          <li>
-            <a class="dropdown-item"
-              href="https://wall.alphacoders.com/by_sub_category.php?id=200338&name=Pancake+Wallpapers&filter=4K+Ultra+HD">Galéria
-              Képek</a>
-          </li>
-          <li>
-            <a class="dropdown-item"
-              href="https://csalad.hu/csaladban-elni/orok-kedvencunk-a-palacsinta-3-elronthatatlan-recept?gclid=CjwKCAjw3oqoBhAjEiwA_UaLtmjgvOljF916As5bwbQcRJEW1S2iiliez01GxCLNSce0aKl3RfBg2RoC7GoQAvD_BwE">Hagyományos
-              Palacsinta</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="#">
-              Országok &raquo;
-            </a>
-            <ul class="dropdown-menu dropdown-submenu">
-              <li>
-                <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Franciaorsz%C3%A1g">Franciaország</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Lengyelorsz%C3%A1g">Lengyelország</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">Magyarország</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Ausztria">Ausztria</a>
-              </li>
-              <li>
-                <a class="dropdown-item"
-                  href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">Dél-Németország</a>
-              </li>
-              <li>
-                <a class="dropdown-item"
-                  href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">Észak-Németország</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Oroszorsz%C3%A1g">Oroszország</a>
+              <li><span class="mx-2 font-style"
+                  style="color: rgb(24, 190, 24); font-size: 20px; text-decoration: none;"> Magyarország<img
+                    src="https://cdn.discordapp.com/attachments/1185651182681718815/1260962491303985275/1f1ed-1f1fa.png?ex=66913a55&is=668fe8d5&hm=38eb8a620f747b3b3d9f4faa7765cb3b2c545e4bf5d4bf5eb8c0248a56d300d1&"
+                    height="20px" style="margin-left: 12px;"></span><a class="txt-decoff" target="_blank"
+                  href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+                    <path
+                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
+                  </svg>
+                </a><span class="mx-2 badge bg-secondary">(Lókáció)</span>
+                <p class="font-styles text-white">
+
+                </p>
               </li>
             </ul>
+            <p style="margin-left: 10px;" class="inf">
+              <img src="img/logo.png" alt=""> Szerver info <img src="img/logo.png" alt="">
+              <br>
+              <br><span class="text-center">[HUN] NexxoN | AWP szerver </span><br>
+              <span class="pg" style="margin-left: 5%;">CS:2</span>
+              <br>
+              
+              <span style="margin-left: 9%;"> IP: </span>
+              <br>
+
+              <span style="margin-left: 6%;">95.138.193.253:30002</span> <br>
+              
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-  crossorigin="anonymous"></script>
-<script src="js/report.js"></script>
+  
+  <style>
+    .inf {
+        text-align: center;
+        
+      }
+    @media only screen and (max-width: 600px) {
+      .inf {
+        text-align: center;
+        
+      }
+    }
+  </style>
+
+  <section class="timeline">
+    <ul>
+      <li>
+        <div>
+          <time>1934</time> At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At
+          vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1937</time> Proin quam velit, efficitur vel neque vitae, rhoncus commodo mi. Suspendisse finibus mauris
+          et bibendum molestie. Aenean ex augue, varius et pulvinar in, pretium non nisi.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1940</time> Proin iaculis, nibh eget efficitur varius, libero tellus porta dolor, at pulvinar tortor ex
+          eget ligula. Integer eu dapibus arcu, sit amet sollicitudin eros.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1943</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
+          mattis. Vestibulum id magna est.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1946</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
+          mattis. Vestibulum id magna est.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1956</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
+          mattis. Vestibulum id magna est.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1957</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
+          mattis. Vestibulum id magna est.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1967</time> Aenean condimentum odio a bibendum rhoncus. Ut mauris felis, volutpat eget porta faucibus,
+          euismod quis ante.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1977</time> Vestibulum porttitor lorem sed pharetra dignissim. Nulla maximus, dui a tristique iaculis,
+          quam dolor convallis enim, non dignissim ligula ipsum a turpis.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>1985</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
+          mattis. Vestibulum id magna est.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>2000</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
+          mattis. Vestibulum id magna est.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>2005</time> In mattis elit vitae odio posuere, nec maximus massa varius. Suspendisse varius volutpat
+          mattis. Vestibulum id magna est.
+        </div>
+      </li>
+    </ul>
+  </section>
+  <footer class="page-footer">
+    <span>Készítette</span>
+    <a href="#">
+      <img width="24" height="24" src="img/logo.png" alt="George Martsoukos logo">
+    </a>
+  </footer>
+  <script>
+    (function () {
+      "use strict";
+
+      // define variables
+      var items = document.querySelectorAll(".timeline li");
+
+      // check if an element is in viewport
+      // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+      function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+          (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+      }
+
+      function callbackFunc() {
+        for (var i = 0; i < items.length; i++) {
+          if (isElementInViewport(items[i])) {
+            items[i].classList.add("in-view");
+          }
+        }
+      }
+
+      // listen for events
+      window.addEventListener("load", callbackFunc);
+      window.addEventListener("resize", callbackFunc);
+      window.addEventListener("scroll", callbackFunc);
+    })();
+
+  </script>
+  <footer>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4 class="text-white">Köszönöm hogy végignézted a weboldalt</h4>
+            <p class="text-muted">Ez a weboldal nagyrészben Bootstrap 5 felhasználásával készült elemenként. A linkeket
+              illetve az egyéb hivatkozásokat a <code>Forrás</code>okra kattintva tudja megtekinteni.
+            </p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4 class="text-white">Egyéb</h4>
+            <ul class="list-unstyled">
+              <li><a href="www.w3schools.com" class="text-white">w3schools</a></li>
+              <li><a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/" class="text-white">Bootstrap
+                  5</a></li>
+              <li><a class="text-white" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
+                  aria-controls="offcanvasExample">
+                  Forrás
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
+            viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+          <strong>Rólunk</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Források</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div>
+          A weboldalon felhasznált linekek,képek,információk!
+        </div>
+        <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown">
+            Linkek
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Palacsinta">Palacsinta Wikipedia</a>
+            </li>
+            <li>
+              <a class="dropdown-item"
+                href="https://wall.alphacoders.com/by_sub_category.php?id=200338&name=Pancake+Wallpapers&filter=4K+Ultra+HD">Galéria
+                Képek</a>
+            </li>
+            <li>
+              <a class="dropdown-item"
+                href="https://csalad.hu/csaladban-elni/orok-kedvencunk-a-palacsinta-3-elronthatatlan-recept?gclid=CjwKCAjw3oqoBhAjEiwA_UaLtmjgvOljF916As5bwbQcRJEW1S2iiliez01GxCLNSce0aKl3RfBg2RoC7GoQAvD_BwE">Hagyományos
+                Palacsinta</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+                Országok &raquo;
+              </a>
+              <ul class="dropdown-menu dropdown-submenu">
+                <li>
+                  <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Franciaorsz%C3%A1g">Franciaország</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Lengyelorsz%C3%A1g">Lengyelország</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">Magyarország</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Ausztria">Ausztria</a>
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">Dél-Németország</a>
+                </li>
+                <li>
+                  <a class="dropdown-item"
+                    href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">Észak-Németország</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="https://hu.wikipedia.org/wiki/Oroszorsz%C3%A1g">Oroszország</a>
+                </li>
+              </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="js/report.js"></script>
 </body>
 
 </html>

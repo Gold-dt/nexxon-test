@@ -105,12 +105,15 @@ body{
     background-color: #000;
   }
   .kard{
-    background-color: #ffffff6a;
+    
     border-radius: 40px;
     padding: 20px;
     text-indent: 10px;
     margin: 10px;
     border-left: yellow 5px solid;
+  }
+  .szab{
+    border-left: red 5px solid !important;
   }
   .navbar-toggler-icon {
     background-image: url(/IMG/up-arrow-svgrepo-com.svg) !important;
