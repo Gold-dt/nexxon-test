@@ -7,7 +7,7 @@ function popup() {
 document.getElementById('sendWebhookBtn').addEventListener('click', sendWebhook);
 
         function sendWebhook() {
-            const webhookURL = 'https://discord.com/api/webhooks/856856472738856963/Obecft5nTsmDEL9vAh0tY5LJWdVFPhCiRnuHBL9lWqeB4cQee3sm0SiqsV6e4Fikm25w';  // Cseréld le a saját webhook URL-edre
+            const webhookURL = 'dc-wbhlink';  // Cseréld le a saját webhook URL-edre
             const xhr = new XMLHttpRequest();
             xhr.open('POST', webhookURL, true);
             xhr.setRequestHeader('Content-Type', 'application/json');

@@ -175,16 +175,6 @@ body{
     
 }
 
-.report-h2 {
-    text-align: center;
-    color: #fe5454;
-    border: 1px solid #fe5454;
-    padding: 4px;
-    border-radius: 8px;
-    margin-inline: 18px;
-    width: 66%;
-    margin: 0 auto;
-}
 
 .report p {
     font-size: 14px;
