@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animált Div Megjelenés</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    #animatedDiv {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #showButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        outline: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <button id="showButton">Div Megjelenítése</button>
+    <div id="animatedDiv" style="display: none;">
+        <h2>Ez egy animált div</h2>
+        <p>Ez a div animációval jelenik meg.</p>
+    </div>
+</div>
+
+<script>
+    const showButton = document.getElementById('showButton');
+    const animatedDiv = document.getElementById('animatedDiv');
+
+    showButton.addEventListener('click', function() {
+        animatedDiv.style.display = 'block';
+        setTimeout(() => {
+            animatedDiv.style.opacity = animatedDiv.style.opacity === '0' ? '1' : '0';
+            animatedDiv.style.transform = animatedDiv.style.transform ? '' : 'translateY(0)';
+        }, 50);
+    });
+</script>
+
+</body>
+</html>

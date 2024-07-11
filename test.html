@@ -18,15 +18,14 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            
+            font-family: 'Montserrat', sans-serif;
             height: 100vh;
-            margin: -20px 0 50px;
+            margin: 0;
         }
 
         .report-h1 {
             font-weight: bold;
             margin: 0;
-            
         }
 
         .report-h2 {
@@ -44,10 +43,12 @@
             line-height: 20px;
             letter-spacing: 0.5px;
             margin: 20px 0 30px;
+            color: white;
         }
 
         .report span {
             font-size: 12px;
+            color: white;
         }
 
         .report a {
@@ -55,6 +56,7 @@
             font-size: 14px;
             text-decoration: none;
             margin: 15px 0;
+            color: white;
         }
 
         .report button {
@@ -68,6 +70,7 @@
             letter-spacing: 1px;
             text-transform: uppercase;
             transition: transform 80ms ease-in;
+            cursor: pointer;
         }
 
         .report button:active {
@@ -84,7 +87,7 @@
         }
 
         .report form {
-            background: linear-gradient(90deg, rgba(32,32,32,1) 0%, rgba(84,84,84,1) 99%, rgba(254,84,84,1) 100%);
+            background: linear-gradient(90deg, rgba(32, 32, 32, 1) 0%, rgba(84, 84, 84, 1) 99%, rgba(254, 84, 84, 1) 100%);
             color: white;
             display: flex;
             align-items: center;
@@ -93,7 +96,6 @@
             padding: 0 50px;
             height: 100%;
             text-align: center;
-            
         }
 
         .report input {
@@ -102,13 +104,12 @@
             padding: 12px 15px;
             margin: 8px 0;
             width: 100%;
+            border-radius: 5px;
         }
 
         .report {
             background-color: #fe5454;
             border-radius: 10px;
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-                0 10px 10px rgba(0, 0, 0, 0.22);
             position: relative;
             overflow: hidden;
             width: 768px;
@@ -117,6 +118,19 @@
             display: flex;
             flex-direction: column;
             box-shadow: 2px 2px 10px #fe5454;
+            opacity: 0;
+            animation: showPanel 0.6s forwards;
+        }
+
+        @keyframes showPanel {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .form-report {
@@ -147,17 +161,15 @@
             transform: translateX(100%);
             opacity: 1;
             z-index: 5;
-            animation: show 0.6s;
+            animation: showOverlay 0.6s forwards;
         }
 
-        @keyframes show {
-
+        @keyframes showOverlay {
             0%,
             49.99% {
                 opacity: 0;
                 z-index: 1;
             }
-
             50%,
             100% {
                 opacity: 1;
@@ -245,7 +257,7 @@
             margin: 0 5px;
             height: 40px;
             width: 40px;
-        }  
+        }
 
         @media screen and (max-width: 768px) {
             .report {
@@ -260,7 +272,6 @@
                 top: 0;
                 left: 0;
                 transform: translateX(0);
-                
             }
 
             .report.right-panel-active .sign-in-report,
@@ -277,11 +288,6 @@
             .form-report {
                 height: auto;
                 padding: 20px;
-                
-            }
-            form{
-                border-radius: 10px;
-                margin: 9px;
             }
         }
     </style>
@@ -289,7 +295,7 @@
 
 <body>
     <h2 class="report-h2">#Nexxon Report System</h2>
-    
+
     <div class="report" id="report">
         <div class="form-report sign-in-report">
             <form action="#">
@@ -304,15 +310,14 @@
                 <input class="report-input" type="password" placeholder="Játékos Steam ID-je" />
                 <input class="report-input" type="text" placeholder="Indok" />
                 <a class="report-a" href="#" style="color: rgb(163, 163, 163);">Minden mezőt ki kell tölteni</a>
-                <button>Elküldés</button>
+                <button><a href="/test2.html">Elküldés</a></button>
             </form>
         </div>
         <div class="overlay-report">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
                     <h1>Üdvözöllek a report panelen</h1>
-                    <p>Fölöslegesen ne reportolj senkit 😉</p>
-                    
+                    <p>Fölöslegesen ne reportolj</p>
                 </div>
             </div>
         </div>
@@ -325,6 +330,13 @@
     </footer>
 
     <script>
+        // Megvárjuk, amíg az oldal betöltődik, majd indítjuk az animációt
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.getElementById('report').style.opacity = 1;
+            }, 500); // 500ms késleltetés után kezdődjön az animáció
+        });
+
         const signUpButton = document.getElementById('signUp');
         const signInButton = document.getElementById('signIn');
         const report = document.getElementById('report');

@@ -2,6 +2,7 @@
 
 function popup() {
   document.getElementById("reporter").classList.toggle("report-popup-on");
+  
 }
 
 document.getElementById('sendWebhookBtn').addEventListener('click', sendWebhook);
