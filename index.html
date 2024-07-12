@@ -735,11 +735,11 @@
     }
 
     .clock {
-      
-      
+
+
       text-align: center;
       color: #fbff00;
-      font-size: 60px;
+      font-size: 45px;
       font-family: Orbitron;
       letter-spacing: 7px;
 
@@ -839,17 +839,163 @@
             </p>
           </div>
         </div>
+        <style>
+          @media only screen and (min-width: 600px) {
+              .killFeed {
+                  display: inline-block !important;
+                  margin-top: 15px !important;
+                  min-width: 100px !important;
+                  position: relative !important;
+                  height: 40px !important;
+                  background: rgba(0, 0, 0, 0.5) !important;
+                  border: 2px #B50000 solid !important;
+                  border-radius: 6px !important;
+                  padding: 0 10px !important;
+                  transform: scale(1) !important;
+                  transition: .1s !important;
+                  
+              }
+      
+              .killFeed:hover {
+                  transform: scale(1.01) !important;
+                  box-shadow: 0 0 10px rgba(111, 0, 0, 0.5) !important;
+              }
+      
+              .killer {
+                  color: #ECCE51 !important;
+                  line-height: 40px !important;
+                  display: inline-block !important;
+                  margin-right: 10px !important;
+                  float: left !important;
+              }
+      
+              .weapon {
+                  float: left !important;
+              }
+      
+              .weapon.ak47 {
+                  margin-top: 2px !important;
+                  height: 25px !important;
+                  width: 80px !important;
+                  background: url(/img/assault-rifle-white-icon-vector-removebg-preview.png) no-repeat !important;
+                  background-size: cover !important;
+              }
+      
+              .weapon.awp {
+                  margin-top: 1px !important;
+                  height: 25px !important;
+                  width: 80px !important;
+                  background: url("/img/awp.png") no-repeat !important;
+                  background-size: cover !important;
+              }
+      
+              .headshot.true {
+                  margin: 8px 0px 0px 10px !important;
+                  height: 22px !important;
+                  width: 22px !important;
+                  background-image: url(/img/headshott.png) !important;
+                  background-size: cover !important;
+                  float: left !important;
+              }
+      
+              .wallbang {
+                  float: left !important;
+              }
+      
+              .wallbang.true {
+                  margin: 8px 0px 0px 10px !important;
+                  height: 22px !important;
+                  width: 22px !important;
+                  background: url(/img/Wallbang-removebg-preview.png) !important;
+                  background-size: cover !important;
+              }
+      
+              .ns.true {
+                  margin: 8px 0px 0px 10px !important;
+                  height: 22px !important;
+                  width: 22px !important;
+                  background: url(/img/ns.png) !important;
+                  background-size: cover !important;
+                  float: left !important;
+              }
+      
+              .ns {
+                  float: left !important;
+              }
+      
+              .headshot {
+                  float: left !important;
+              }
+      
+              .killed {
+                  margin-left: 10px !important;
+                  color: #71A6FF !important;
+                  line-height: 40px !important;
+                  display: inline-block !important;
+                  float: left !important;
+              }
+              
+              .killer,.killed{
+                text-decoration: none !important;
+              }
+
+              .adminfeed {
+                  display: block !important;
+                  
+              }
+          }
+      </style>
+        <div class="adminfeed" style="display: none;">
+          <link href='https://fonts.googleapis.com/css?family=Rajdhani:600' rel='stylesheet' type='text/css'>
+          <div class="container">
+              <div class="killFeed">
+                  <a href="https://steamcommunity.com/profiles/76561199529472278" target="_blank" class="killer">[ADMIN] Lil Ateszko</a>
+          
+                  <div class="headshot"><img src="img/self.png" style="margin-top: 3px;" ></div>
+          
+                  <a style="margin-left: 9.5121111111111111111111111px; margin-right: 0;" href="https://steamcommunity.com/profiles/76561199529472278" target="_blanke" class="killer">[ADMIN] Lil Ateszko</a>
+              </div>
+          </div>
+          <div class="container">
+              <div class="killFeed">
+                  <a href="" class="killed" title="[Tulaj]" style="margin-right: 10px;">[Tulaj] Gold_dt</a>
+                  <div class="weapon awp"></div>
+                  <div class="ns true" style="margin-right: 2px;"></div>
+                  <div class="wallbang true"></div>
+                  <div class="headshot true"></div>
+                  <a href="" class="killer"><span style="margin-right: 4px; margin-left: 9.5121111111111111111111111px;">[Tulaj]</span> ᔕᑌᗷᑕOᗪEᖇ</a>
+              </div>
+          </div>
+          <div class="container">
+              <div class="killFeed">
+                  <a href="https://steamcommunity.com/profiles/76561198077043173" class="killed">[ADMIN] pepeL</a>
+                  <div class="weapon ak47"></div>
+                  <div class="headshot true"></div>
+          
+                  <a href="https://steamcommunity.com/profiles/76561198828204167" class="killed" target="_blank" title="0.5 centi scoope">[ADMIN] Tajszon</a>
+              </div>
+          </div>
+          <div class="container">
+              <div class="killFeed">
+                  <a href="https://steamcommunity.com/profiles/76561199079638970/" class="killer" target="_blank">[ADMIN] [SzurikátaPeek] Atankx</a>
+                  <div class="weapon awp"></div>
+                  <div class="headshot true"></div>
+                  <div class="wallbang true"></div>
+                  <a href="https://steamcommunity.com/profiles/76561199220585559" class="killed" target="_blank">[VIP] DOOM CAT [BUKTA]</a>
+              </div>
+          </div>
+        </div>
       </section>
       <article class="article" style="margin: 0 auto; padding: 20px;">
         <figure class="figure">
           <figcaption class="figcaption">
             <h1 class="heading">
-              Collapsible Gallery
+              Élményképek
             </h1>
             <p class="description">
-              Use the button <span>to the right</span> <span>below</span> to open and close my gallery. You can hover
-              over images to expand them. I wanted to save some vertical space and give users a fun interaction on my
-              site so here it is. You could put multiple of these stacked on each other, as an idea.
+              Az itt látható néhány kép és <span style="font-style: italic;">meme</span> szerverünkön készült kedves
+              játékosaink álta valamilyen emlékezetes akció közben de vagy csak egy igen kiborítő eseménylánc
+              pillanatképe 🤣
             </p>
           </figcaption>
           <button class="button">
@@ -1051,9 +1197,8 @@
 
               <li><span class="mx-2 font-style"
                   style="color: rgb(24, 190, 24); font-size: 20px; text-decoration: none;"> Magyarország<img
-                    src="https://cdn.discordapp.com/attachments/1185651182681718815/1260962491303985275/1f1ed-1f1fa.png?ex=66913a55&is=668fe8d5&hm=38eb8a620f747b3b3d9f4faa7765cb3b2c545e4bf5d4bf5eb8c0248a56d300d1&"
-                    height="20px" style="margin-left: 12px;"></span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">
+                    src="/img/hun-fleg.png" height="20px" style="margin-left: 12px;"></span><a class="txt-decoff"
+                  target="_blank" href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">
                   <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
                     <path
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
@@ -1197,8 +1342,7 @@
       // define variables
       var items = document.querySelectorAll(".timeline li");
 
-      // check if an element is in viewport
-      // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+
       function isElementInViewport(el) {
         var rect = el.getBoundingClientRect();
         return (

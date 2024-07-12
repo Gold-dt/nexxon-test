@@ -10,56 +10,154 @@
 <body>
     <style>
         body {
-            background: black;
+            font-size: 20px;
+            font-family: 'Rajdhani', sans-serif;
+            background: #010A13;
         }
 
-        .clock {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-            color: #fbff00;
-            font-size: 60px;
-            font-family: Orbitron;
-            letter-spacing: 7px;
+        a {
+            text-decoration: none;
+        }
 
+        .container {
+            text-align: center;
+        }
 
+        .killFeed {
+            margin-top: 15px;
+            min-width: 100px;
+            position: relative;
+            display: inline-block;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px #B50000 solid;
+            border-radius: 6px;
+            padding: 0 10px;
+            transform: scale(1);
+            transition: .1s;
+        }
 
+        .killFeed:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 10px rgba(111, 0, 0, 0.5);
+        }
+
+        .killer {
+            color: #ECCE51;
+            line-height: 40px;
+            display: inline-block;
+            margin-right: 10px;
+            float: left;
+        }
+
+        .weapon {
+            float: left;
+        }
+
+        .weapon.ak47 {
+            margin-top: 2px;
+            height: 25px;
+            width: 80px;
+            background: url(/img/assault-rifle-white-icon-vector-removebg-preview.png) no-repeat;
+            background-size: cover;
+            float: left;
+        }
+
+        .weapon.awp {
+            margin-top: 1px;
+            height: 25px;
+            width: 80px;
+            background: url("/img/awp.png") no-repeat;
+            background-size: cover;
+            float: left;
+        }
+
+        .headshot.true {
+            margin: 8px 0px 0px 10px;
+            height: 22px;
+            width: 22px;
+            background-image: url(/img/headshott.png);
+            background-size: cover;
+            float: left;
+        }
+
+        .wallbang {
+            float: left;
+        }
+
+        .wallbang.true {
+            margin: 8px 0px 0px 10px;
+            height: 22px;
+            width: 22px;
+            background: url(/img/Wallbang-removebg-preview.png);
+            background-size: cover;
+            float: left;
+        }
+
+        .ns.true {
+            margin: 8px 0px 0px 10px;
+            height: 22px;
+            width: 22px;
+            background: url(/img/ns.png);
+            background-size: cover;
+            float: left;
+        }
+
+        .ns {
+            float: left;
+        }
+
+        .headshot {
+            float: left;
+        }
+
+        .killed {
+            margin-left: 10px;
+            color: #71A6FF;
+            line-height: 40px;
+            display: inline-block;
+            float: left;
         }
     </style>
-    <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+    <link href='https://fonts.googleapis.com/css?family=Rajdhani:600' rel='stylesheet' type='text/css'>
+    <div class="container">
+        <div class="killFeed">
+            <a href="https://steamcommunity.com/profiles/76561199529472278" target="_blank" class="killer">Lil Ateszko</a>
+            
+            <div class="headshot"><img src="img/self.png" style="margin-top: 3px;" ></div>
+            
+            <a style="margin-left: 9.5121111111111111111111111px; margin-right: 0;" href="https://steamcommunity.com/profiles/76561199529472278" target="_blanke" class="killer">Lil Ateszko</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="killFeed">
+            <a href="" class="killed" title="[Tulaj]" style="margin-right: 10px;">Gold_dt</a>
+            <div class="weapon awp"></div>
+            <div class="ns true" style="margin-right: 2px;"></div>
+            <div class="wallbang true"></div>
+            <div class="headshot true"></div>
+            <a href="" class="killer"><span style="margin-right: 4px; margin-left: 9.5121111111111111111111111px;">[Tulaj]</span> ᔕᑌᗷᑕOᗪEᖇ</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="killFeed">
+            <a href="https://steamcommunity.com/profiles/76561198077043173" class="killed">pepeL</a>
+            <div class="weapon ak47"></div>
+            <div class="headshot true"></div>
+            
+            <a href="https://steamcommunity.com/profiles/76561198828204167" class="killed" target="_blank" title="0.5 centi scoope">Tajszon</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="killFeed">
+            <a href="https://steamcommunity.com/profiles/76561199079638970/" class="killer" target="_blank">[SzurikátaPeek] Atankx</a>
+            <div class="weapon awp"></div>
+            <div class="headshot true"></div>
+            <div class="wallbang true"></div>
+            <a href="https://steamcommunity.com/profiles/76561198867041800" class="killed" target="_blank">Nyufi</a>
+        </div>
+    </div>
 
-    <script>
-        function showTime() {
-            var date = new Date();
-            var h = date.getHours(); // 0 - 23
-            var m = date.getMinutes(); // 0 - 59
-            var s = date.getSeconds(); // 0 - 59
-            var session = "AM";
-
-            if (h == 0) {
-                h = 12;
-            }
-
-            if (h > 12) {
-                h = h -12 ;
-                session = "Délután";
-            }
-
-            h = (h < 10) ? "0" + h : h;
-            m = (m < 10) ? "0" + m : m;
-            s = (s < 10) ? "0" + s : s;
-
-            var time = h + ":" + m + ":" + s + " " + session;
-            document.getElementById("MyClockDisplay").innerText = time;
-            document.getElementById("MyClockDisplay").textContent = time;
-
-            setTimeout(showTime, 1000);
-
-        }
-
-        showTime();
-    </script>
 </body>
 
 </html>
