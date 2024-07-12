@@ -6,147 +6,426 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* CSS styling for scroll tracker */
-        #scroll-tracker {
-            height: 4px;
-            background-color: #5686f5;
-            position: fixed;
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            width: 100vw;
+            min-height: 100vh;
+            background-color: black;
+            font: normal normal 400 12pt / 2cap "Golos Text", sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .article {
+            width: 100%;
+            max-width: 1265px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .figure {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin: 0 0 30px 0;
+        }
+
+        .figcaption {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: space-between;
+        }
+
+        .figcaption h1 {
+            font: normal normal 400 240% / 1.5cap "Della Respira", serif;
+            padding: 0 0 10px 0;
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid #333;
+            text-wrap: balance;
+        }
+
+        .figcaption p {
+            color: #bbb;
+            padding-left: 30px;
+            margin: 0;
+            border-left: 10px solid;
+            border-image: repeating-linear-gradient(43deg,
+                    white,
+                    white 4px,
+                    transparent 5px,
+                    transparent 9px,
+                    white 10px) 10;
+            text-wrap: pretty;
+        }
+
+        .figcaption p span:last-of-type {
+            display: none;
+        }
+
+        .button {
+            font: normal normal 400 12pt / 2cap "Golos Text", sans-serif;
+            width: 200px;
+            height: 50px;
+            background-color: transparent;
+            border: 1px solid #666;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button::after {
+            position: absolute;
+            right: 100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ccc;
+            content: "";
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover::after {
+            right: 0;
+            transition: all 0.3s ease;
+        }
+
+        .button input {
+            display: none;
+        }
+
+        .button label {
+            position: absolute;
+            width: 100%;
+            height: 100%;
             top: 0;
             left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover label {
+            color: black;
+            transition: all 0.3s ease;
+        }
+
+        .button label span {
+            display: none;
+        }
+
+        .button:not(:has(input:checked)) label span:first-of-type {
+            display: initial;
+        }
+
+        .button:has(input:checked) label span:last-of-type {
+            display: initial;
+        }
+
+        .section {
+            width: 100%;
+            height: 0;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: stretch;
+            border-right: 1px solid #555;
+            border-bottom: 1px solid #555;
+            border-left: 1px solid #555;
+            transition: all 0.5s ease;
+            position: relative;
+        }
+
+        .section::before {
+            position: absolute;
+            top: 0;
             right: 0;
-            transform-origin: left top;
+            width: 100%;
+            height: 2px;
+            background-image: linear-gradient(90deg,
+                    #ff00bb,
+                    #ff00b6,
+                    #ff00a8,
+                    #ff0b93,
+                    #ff347a,
+                    #ff585f,
+                    #ff7a44,
+                    #ff9829,
+                    #ffb20c,
+                    #ffc500,
+                    #ffd100,
+                    #ffd500);
+            content: "";
+            z-index: 2;
+            transition: all 1.2s ease;
+        }
+
+        .figure:has(.button input:checked)~.section::before {
+            width: 0px;
+            transition: all 1.2s ease;
+        }
+
+        .div {
+            flex-grow: 1;
+            opacity: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            transition: all 0.4s ease;
+        }
+
+        .figure:has(.button input:checked)~.section {
+            height: 220px;
+            transition: all 0.5s ease;
+        }
+
+        .figure:has(.button input:checked)~.section .div,
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div+.div+.div+.div+.div+.div+.div+.div {
+            opacity: 1;
+            flex-grow: 2;
+            transition-delay: 0.15s;
+        }
+
+        .figure:has(.button input:checked)~.section .div+.div,
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div+.div+.div+.div+.div+.div+.div {
+            opacity: 1;
+            transition-delay: 0.3s;
+            flex-grow: 3;
+        }
+
+        .figure:has(.button input:checked)~.section .div+.div+.div,
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div+.div+.div+.div+.div {
+            opacity: 1;
+            transition-delay: 0.45s;
+            flex-grow: 4;
+        }
+
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div,
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div+.div+.div+.div {
+            opacity: 1;
+            transition-delay: 0.6s;
+            flex-grow: 5;
+        }
+
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div+.div,
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div+.div+.div {
+            opacity: 1;
+            transition-delay: 0.75s;
+            flex-grow: 6;
+        }
+
+        .figure:has(.button input:checked)~.section .div+.div+.div+.div+.div+.div {
+            opacity: 1;
+            transition-delay: 0.9s;
+            flex-grow: 7;
+        }
+
+        .section .div:hover {
+            flex-grow: 2 !important;
+        }
+
+        .section:has(.div:hover) .div:not(:hover) {
+            flex-grow: 1 !important;
+        }
+
+        .section:has(.div:hover) .div {
+            transition-delay: 0s !important;
+        }
+
+        .figure:has(.button input:checked)~.section .div {
+            animation: pointerFix 1.7s linear 0s 1 normal;
+        }
+
+        @keyframes pointerFix {
+            0% {
+                pointer-events: none;
+            }
+
+            99% {
+                pointer-events: none;
+            }
+
+            100% {
+                pointer-events: initial;
+            }
+        }
+
+        /* Change Gallery Images */
+
+        .section .div:first-of-type {
+            background-image: url("https://picsum.photos/id/337/500/500");
+        }
+
+        .section .div+.div {
+            background-image: url("https://picsum.photos/id/515/500/500");
+        }
+
+        .section .div+.div+.div {
+            background-image: url("https://picsum.photos/id/424/500/500");
+        }
+
+        .section .div+.div+.div+.div {
+            background-image: url("https://picsum.photos/id/849/500/500");
+        }
+
+        .section .div+.div+.div+.div+.div {
+            background-image: url("https://picsum.photos/id/476/500/500");
+        }
+
+        .section .div+.div+.div+.div+.div+.div {
+            background-image: url("https://picsum.photos/id/57/500/500");
+        }
+
+        .section .div+.div+.div+.div+.div+.div+.div {
+            background-image: url("https://picsum.photos/id/82/500/500");
+        }
+
+        .section .div+.div+.div+.div+.div+.div+.div+.div {
+            background-image: url("https://picsum.photos/id/680/500/500");
+        }
+
+        .section .div+.div+.div+.div+.div+.div+.div+.div+.div {
+            background-image: url("https://picsum.photos/id/553/500/500");
+        }
+
+        .section .div+.div+.div+.div+.div+.div+.div+.div+.div+.div {
+            background-image: url("https://picsum.photos/id/193/500/500");
+        }
+
+        .section .div:last-of-type {
+            background-image: url("https://picsum.photos/id/565/500/500");
+        }
+
+        @media (max-width: 900px) {
+            .figure {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .figcaption {
+                margin-bottom: 20px;
+            }
+
+            .figcaption p span:first-of-type {
+                display: none;
+            }
+
+            .figcaption p span:last-of-type {
+                display: initial;
+            }
+
+            .button {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .figcaption {
+                max-width: unset;
+            }
+
+            .button {
+                max-width: unset;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section {
+                flex-direction: column;
+            }
+
+            .figure:has(.button input:checked)~.section {
+                height: 1000px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Scroll tracker element -->
-    <div id="scroll-tracker"></div>
+    <article class="article">
+        <figure class="figure">
+            <figcaption class="figcaption">
+                <h1 class="heading">
+                    Collapsible Gallery
+                </h1>
+                <p class="description">
+                    Use the button <span>to the right</span> <span>below</span> to open and close my gallery. You can
+                    hover over images to expand them. I wanted to save some vertical space and give users a fun
+                    interaction on my site so here it is. You could put multiple of these stacked on each other, as an
+                    idea.
+                </p>
+            </figcaption>
+            <button class="button">
+                <label for="init">
+                    <span>Expand</span>
+                    <span>Collapse</span>
+                </label>
+                <input type="checkbox" name="init" id="init">
+            </button>
+        </figure>
+        <section class="section">
+            <div class="div" onclick="console.log('test')">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+            <div class="div">
+            </div>
+        </section>
+    </article>
+    <div class="container">
 
-    <main>
-       
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates libero iste quis! Optio laudantium amet iste dicta fugit error! Ipsam eligendi eum est commodi, itaque ullam libero mollitia quo?
-        Est perferendis praesentium ipsa ad iure illum possimus natus maxime veniam dicta nostrum similique eos, vel dolorem voluptatibus repellat, ducimus alias voluptas corporis. Libero quae nulla eveniet explicabo voluptate deserunt?
-        Repudiandae tempora, cum aliquid eius, asperiores est consequatur, laborum ut sequi earum temporibus dignissimos! Nisi tempore necessitatibus quia sit, repellendus magni expedita magnam et accusamus hic corrupti, perspiciatis exercitationem minus!
-        Illum incidunt neque corrupti ut voluptatum voluptatem libero earum nesciunt impedit dolorem eligendi, quos autem dolore quas facilis in, accusantium fugit delectus quis iusto commodi! Reiciendis tempore necessitatibus consequatur in.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates libero iste quis! Optio laudantium amet iste dicta fugit error! Ipsam eligendi eum est commodi, itaque ullam libero mollitia quo?
-        Est perferendis praesentium ipsa ad iure illum possimus natus maxime veniam dicta nostrum similique eos, vel dolorem voluptatibus repellat, ducimus alias voluptas corporis. Libero quae nulla eveniet explicabo voluptate deserunt?
-        Repudiandae tempora, cum aliquid eius, asperiores est consequatur, laborum ut sequi earum temporibus dignissimos! Nisi tempore necessitatibus quia sit, repellendus magni expedita magnam et accusamus hic corrupti, perspiciatis exercitationem minus!
-        Illum incidunt neque corrupti ut voluptatum voluptatem libero earum nesciunt impedit dolorem eligendi, quos autem dolore quas facilis in, accusantium fugit delectus quis iusto commodi! Reiciendis tempore necessitatibus consequatur in.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates libero iste quis! Optio laudantium amet iste dicta fugit error! Ipsam eligendi eum est commodi, itaque ullam libero mollitia quo?
-        Est perferendis praesentium ipsa ad iure illum possimus natus maxime veniam dicta nostrum similique eos, vel dolorem voluptatibus repellat, ducimus alias voluptas corporis. Libero quae nulla eveniet explicabo voluptate deserunt?
-        Repudiandae tempora, cum aliquid eius, asperiores est consequatur, laborum ut sequi earum temporibus dignissimos! Nisi tempore necessitatibus quia sit, repellendus magni expedita magnam et accusamus hic corrupti, perspiciatis exercitationem minus!
-        Illum incidunt neque corrupti ut voluptatum voluptatem libero earum nesciunt impedit dolorem eligendi, quos autem dolore quas facilis in, accusantium fugit delectus quis iusto commodi! Reiciendis tempore necessitatibus consequatur in.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates libero iste quis! Optio laudantium amet iste dicta fugit error! Ipsam eligendi eum est commodi, itaque ullam libero mollitia quo?
-        Est perferendis praesentium ipsa ad iure illum possimus natus maxime veniam dicta nostrum similique eos, vel dolorem voluptatibus repellat, ducimus alias voluptas corporis. Libero quae nulla eveniet explicabo voluptate deserunt?
-        Repudiandae tempora, cum aliquid eius, asperiores est consequatur, laborum ut sequi earum temporibus dignissimos! Nisi tempore necessitatibus quia sit, repellendus magni expedita magnam et accusamus hic corrupti, perspiciatis exercitationem minus!
-        Illum incidunt neque corrupti ut voluptatum voluptatem libero earum nesciunt impedit dolorem eligendi, quos autem dolore quas facilis in, accusantium fugit delectus quis iusto commodi! Reiciendis tempore necessitatibus consequatur in.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates libero iste quis! Optio laudantium amet iste dicta fugit error! Ipsam eligendi eum est commodi, itaque ullam libero mollitia quo?
-        Est perferendis praesentium ipsa ad iure illum possimus natus maxime veniam dicta nostrum similique eos, vel dolorem voluptatibus repellat, ducimus alias voluptas corporis. Libero quae nulla eveniet explicabo voluptate deserunt?
-        Repudiandae tempora, cum aliquid eius, asperiores est consequatur, laborum ut sequi earum temporibus dignissimos! Nisi tempore necessitatibus quia sit, repellendus magni expedita magnam et accusamus hic corrupti, perspiciatis exercitationem minus!
-        Illum incidunt neque corrupti ut voluptatum voluptatem libero earum nesciunt impedit dolorem eligendi, quos autem dolore quas facilis in, accusantium fugit delectus quis iusto commodi! Reiciendis tempore necessitatibus consequatur in.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates libero iste quis! Optio laudantium amet iste dicta fugit error! Ipsam eligendi eum est commodi, itaque ullam libero mollitia quo?
-        Est perferendis praesentium ipsa ad iure illum possimus natus maxime veniam dicta nostrum similique eos, vel dolorem voluptatibus repellat, ducimus alias voluptas corporis. Libero quae nulla eveniet explicabo voluptate deserunt?
-        Repudiandae tempora, cum aliquid eius, asperiores est consequatur, laborum ut sequi earum temporibus dignissimos! Nisi tempore necessitatibus quia sit, repellendus magni expedita magnam et accusamus hic corrupti, perspiciatis exercitationem minus!
-        Illum incidunt neque corrupti ut voluptatum voluptatem libero earum nesciunt impedit dolorem eligendi, quos autem dolore quas facilis in, accusantium fugit delectus quis iusto commodi! Reiciendis tempore necessitatibus consequatur in.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates libero iste quis! Optio laudantium amet iste dicta fugit error! Ipsam eligendi eum est commodi, itaque ullam libero mollitia quo?
-        Est perferendis praesentium ipsa ad iure illum possimus natus maxime veniam dicta nostrum similique eos, vel dolorem voluptatibus repellat, ducimus alias voluptas corporis. Libero quae nulla eveniet explicabo voluptate deserunt?
-        Repudiandae tempora, cum aliquid eius, asperiores est consequatur, laborum ut sequi earum temporibus dignissimos! Nisi tempore necessitatibus quia sit, repellendus magni expedita magnam et accusamus hic corrupti, perspiciatis exercitationem minus!
-        Illum incidunt neque corrupti ut voluptatum voluptatem libero earum nesciunt impedit dolorem eligendi, quos autem dolore quas facilis in, accusantium fugit delectus quis iusto commodi! Reiciendis tempore necessitatibus consequatur in.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia et, nam ex fuga libero cumque tempore placeat totam est! Fuga fugiat minima molestiae impedit facilis dolor porro iste animi deserunt!
-        Quidem officia ea nemo dolores aspernatur, eaque praesentium delectus non, dolor similique nostrum amet soluta vero. Repellat, nemo blanditiis! Dolorum nobis facere assumenda autem, vero repellendus ab neque fugit tenetur!
-        Numquam earum expedita magni impedit aperiam non distinctio vitae pariatur necessitatibus, cum quia, officia excepturi, perspiciatis sapiente veritatis illo eveniet totam facilis quis voluptas fuga? Eum cupiditate porro accusantium odio.
-        Odio ea repellat quod delectus, aspernatur illo necessitatibus. Eveniet blanditiis voluptas aliquam voluptates, delectus ullam earum sunt eaque impedit exercitationem reprehenderit, assumenda ad, minima tenetur deleniti quibusdam dolorem numquam hic!
-        Labore eligendi sed at, repudiandae in sint dolore facilis autem officiis. Quos debitis, assumenda in voluptates ea reprehenderit dolor eligendi qui facilis expedita vitae consequuntur pariatur, quis quibusdam sint libero.
-        Cupiditate nemo dolorem saepe eos libero porro dolores, non explicabo voluptatum molestias magnam recusandae perspiciatis dolor hic accusantium officiis aut temporibus praesentium maxime distinctio itaque quo cumque qui! Rem, ad?
-        Minima, asperiores ullam! Inventore repellendus ex autem illo, similique distinctio, tempora quidem sed magni vero eveniet nulla. Reprehenderit debitis corporis cumque nulla totam maxime iste consequatur ut deserunt. Officia, doloremque.</p>
-    </main>
+        <h1>Simple Image Gallery with magnific-popup.js</h1>
 
-    <script type="module">
-        // Import the polyfill for ScrollTimeline
-        import 'https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js';
+        <a class="image-popup-vertical-fit" href="https://unsplash.it/974/?random" title="9.jpg">
+            <img src="https://unsplash.it/974/?random" alt="9.jpg" />
+            <i class="fa fa-search-plus" aria-hidden="true"></i>
+        </a>
 
-        // Scroll tracker animation
-        var scrollTracker = document.getElementById('scroll-tracker');
 
-        var scrollTrackingTimeline = new ScrollTimeline({
-            source: document.scrollingElement,
-            orientation: 'inline',
-            scrollOffsets: [CSS.percent(0), CSS.percent(100)],
-        });
 
-        scrollTracker.animate(
-            {
-                transform: ['scaleX(0)', 'scaleX(1)']
-            },
-            {
-                timeline: scrollTrackingTimeline,
-            }
-        )
-    </script>
+    </div>
+
 </body>
 
 </html>
