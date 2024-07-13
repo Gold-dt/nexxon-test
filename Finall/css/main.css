@@ -464,7 +464,7 @@ a {
     }
 */
 html {
-  cursor: url("/cursor/cur425.cur"), pointer;
+  cursor: url("../cursor/cur425.cur"), copy;
 }
 body {
   display: grid;
