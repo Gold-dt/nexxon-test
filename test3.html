@@ -3761,7 +3761,7 @@ $('#click_cookie_m').addEventListener('touchstart', function(e) {
 })
 
 function clickCookie(e) {
-	var a = 3000 * (1 + userdata.upgrades['+CASH'].amount);
+	var a = Math.random() * (1 + userdata.upgrades['+CASH'].amount);
 	userdata.money = userdata.money + a;
 	update();
 	var div = document.createElement('div');
