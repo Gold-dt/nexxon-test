@@ -42,14 +42,39 @@
       color: inherit;
     }
 
+    /* Old
     body {
       font: normal 16px/1.5 "Helvetica Neue", sans-serif;
-      background: black;
+      border-color: black;
       color: #fff;
       overflow-x: hidden;
 
     }
+*/
+    body {
+      display: grid;
 
+
+      font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+      background: hsl(0 0% 4%);
+      color: hsl(0 0% 100%);
+    }
+
+    body::before {
+      --line: hsl(0 0% 95% / 0.15) !important;
+      --size: 60px;
+      content: "";
+      height: 100vh;
+      width: 100vw;
+      position: fixed;
+      background:
+        linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size),
+        linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+      mask: linear-gradient(-15deg, transparent 30%, white);
+      top: 0;
+      z-index: -1;
+      transform: translate3d(0, 0, -100vmin);
+    }
 
     /* INTRO SECTION
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -149,34 +174,38 @@
     /* EFFECTS
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-    .timeline ul li::after {
-      transition: background 0.5s ease-in-out;
-    }
+  .timeline ul li.in-view::after {
+        background: rgb(187, 184, 4);
+      }
 
-    .timeline ul li.in-view::after {
-      background: rgb(187, 184, 4);
-    }
+    @media only screen and (min-width: 600px) {
 
-    .timeline ul li div {
-      visibility: hidden;
-      opacity: 0;
-      transition: all 0.5s ease-in-out;
-    }
+      .timeline ul li::after {
+        transition: background 0.5s ease-in-out;
+      }
 
-    .timeline ul li:nth-child(odd) div {
-      transform: translate3d(200px, 0, 0);
-    }
+      
 
-    .timeline ul li:nth-child(even) div {
-      transform: translate3d(-200px, 0, 0);
-    }
+      .timeline ul li div {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+      }
 
-    .timeline ul li.in-view div {
-      transform: none;
-      visibility: visible;
-      opacity: 1;
-    }
+      .timeline ul li:nth-child(odd) div {
+        transform: translate3d(200px, 0, 0);
+      }
 
+      .timeline ul li:nth-child(even) div {
+        transform: translate3d(-200px, 0, 0);
+      }
+
+      .timeline ul li.in-view div {
+        transform: none;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
 
     /* GENERAL MEDIA QUERIES
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -296,13 +325,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: #000000;
+      background: #000000 !important;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
       height: 100%;
-      z-index: 99;
+      z-index: 9999;
       /* makes sure it stays on top */
     }
 
@@ -840,149 +869,233 @@
           </div>
         </div>
         <style>
-          @media only screen and (min-width: 600px) {
-              .killFeed {
-                  display: inline-block !important;
-                  margin-top: 15px !important;
-                  min-width: 100px !important;
-                  position: relative !important;
-                  height: 40px !important;
-                  background: rgba(0, 0, 0, 0.5) !important;
-                  border: 2px #B50000 solid !important;
-                  border-radius: 6px !important;
-                  padding: 0 10px !important;
-                  transform: scale(1) !important;
-                  transition: .1s !important;
-                  
-              }
-      
-              .killFeed:hover {
-                  transform: scale(1.01) !important;
-                  box-shadow: 0 0 10px rgba(111, 0, 0, 0.5) !important;
-              }
-      
-              .killer {
-                  color: #ECCE51 !important;
-                  line-height: 40px !important;
-                  display: inline-block !important;
-                  margin-right: 10px !important;
-                  float: left !important;
-              }
-      
-              .weapon {
-                  float: left !important;
-              }
-      
-              .weapon.ak47 {
-                  margin-top: 2px !important;
-                  height: 25px !important;
-                  width: 80px !important;
-                  background: url(/img/assault-rifle-white-icon-vector-removebg-preview.png) no-repeat !important;
-                  background-size: cover !important;
-              }
-      
-              .weapon.awp {
-                  margin-top: 1px !important;
-                  height: 25px !important;
-                  width: 80px !important;
-                  background: url("/img/awp.png") no-repeat !important;
-                  background-size: cover !important;
-              }
-      
-              .headshot.true {
-                  margin: 8px 0px 0px 10px !important;
-                  height: 22px !important;
-                  width: 22px !important;
-                  background-image: url(/img/headshott.png) !important;
-                  background-size: cover !important;
-                  float: left !important;
-              }
-      
-              .wallbang {
-                  float: left !important;
-              }
-      
-              .wallbang.true {
-                  margin: 8px 0px 0px 10px !important;
-                  height: 22px !important;
-                  width: 22px !important;
-                  background: url(/img/Wallbang-removebg-preview.png) !important;
-                  background-size: cover !important;
-              }
-      
-              .ns.true {
-                  margin: 8px 0px 0px 10px !important;
-                  height: 22px !important;
-                  width: 22px !important;
-                  background: url(/img/ns.png) !important;
-                  background-size: cover !important;
-                  float: left !important;
-              }
-      
-              .ns {
-                  float: left !important;
-              }
-      
-              .headshot {
-                  float: left !important;
-              }
-      
-              .killed {
-                  margin-left: 10px !important;
-                  color: #71A6FF !important;
-                  line-height: 40px !important;
-                  display: inline-block !important;
-                  float: left !important;
-              }
-              
-              .killer,.killed{
-                text-decoration: none !important;
-              }
+          @keyframes fadeInFromTop {
+            from {
+              opacity: 0;
+              transform: translateY(-20px);
+            }
 
-              .adminfeed {
-                  display: block !important;
-                  
-              }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
-      </style>
-        <div class="adminfeed" style="display: none;">
+
+          @media only screen and (min-width: 930px) {
+            .killFeed {
+              display: inline-block !important;
+              margin-top: 15px !important;
+              min-width: 100px !important;
+              position: relative !important;
+              height: 40px !important;
+              background: rgba(0, 0, 0, 0.5) !important;
+              border: 2px #B50000 solid !important;
+              border-radius: 6px !important;
+              padding: 0 10px !important;
+              transform: scale(1) !important;
+              transition: .1s !important;
+              animation: fadeInFromTop 0.5s ease-in-out !important;
+            }
+
+            .killFeed:hover {
+              transform: scale(1.01) !important;
+              box-shadow: 0 0 10px rgba(111, 0, 0, 0.5) !important;
+            }
+
+            .killer {
+              color: #ECCE51 !important;
+              line-height: 40px !important;
+              display: inline-block !important;
+              margin-right: 10px !important;
+              float: left !important;
+            }
+
+            .weapon {
+              float: left !important;
+            }
+
+            .weapon.ak47 {
+              margin-top: 2px !important;
+              height: 25px !important;
+              width: 80px !important;
+              background: url(/img/assault-rifle-white-icon-vector-removebg-preview.png) no-repeat !important;
+              background-size: cover !important;
+            }
+
+            .weapon.awp {
+              margin-top: 1px !important;
+              height: 25px !important;
+              width: 80px !important;
+              background: url("/img/awp.png") no-repeat !important;
+              background-size: cover !important;
+            }
+
+            .headshot.true {
+              margin: 8px 0px 0px 10px !important;
+              height: 22px !important;
+              width: 22px !important;
+              background-image: url(/img/headshott.png) !important;
+              background-size: cover !important;
+              float: left !important;
+            }
+
+            .wallbang {
+              float: left !important;
+            }
+
+            .wallbang.true {
+              margin: 8px 0px 0px 10px !important;
+              height: 22px !important;
+              width: 22px !important;
+              background: url(/img/Wallbang-removebg-preview.png) !important;
+              background-size: cover !important;
+            }
+
+            .ns.true {
+              margin: 8px 0px 0px 10px !important;
+              height: 22px !important;
+              width: 22px !important;
+              background: url(/img/ns.png) !important;
+              background-size: cover !important;
+              float: left !important;
+            }
+
+            .ns {
+              float: left !important;
+            }
+
+            .headshot {
+              float: left !important;
+            }
+
+            .killed {
+              margin-left: 10px !important;
+              color: #71A6FF !important;
+              line-height: 40px !important;
+              display: inline-block !important;
+              float: left !important;
+            }
+
+            .killer,
+            .killed {
+              text-decoration: none !important;
+            }
+
+            .weapon {
+              display: block;
+            }
+
+            .easteregg {
+              display: block !important;
+            }
+          }
+        </style>
+        <style>
+          .weapon {
+
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            cursor: pointer;
+          }
+
+          .muzzle-flash {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 20px;
+            height: 10px;
+            background: yellow;
+            transform: translateY(-50%);
+            opacity: 0;
+          }
+
+          @keyframes flash {
+
+            0%,
+            100% {
+              opacity: 0;
+              transform: translateX(0) scale(1);
+            }
+
+            50% {
+              opacity: 1;
+              transform: translateX(10px) scale(1.5);
+            }
+          }
+        </style>
+        <div class="easteregg" style="display: none;">
+          <div class="weapon" id="fegyver" onclick="handleClick()">
+            <img src="/img/awp.png" alt="">
+            <div class="muzzle-flash"></div>
+          </div>
+        </div>
+
+        <script>
+          let clickCount = 0;
+
+          function handleClick() {
+            clickCount++;
+            const muzzleFlash = document.querySelector('.muzzle-flash');
+            muzzleFlash.style.animation = 'flash 0.1s ease-in-out';
+
+            setTimeout(() => {
+              muzzleFlash.style.animation = '';
+            }, 100);
+
+            if (clickCount >= 4) {
+              document.getElementById('adminfeed').style.display = 'block';
+              document.getElementById('fegyver').style.display = 'none'
+            }
+          }
+        </script>
+        <div class="adminfeed" id="adminfeed" style="display: none;">
           <link href='https://fonts.googleapis.com/css?family=Rajdhani:600' rel='stylesheet' type='text/css'>
           <div class="container">
-              <div class="killFeed">
-                  <a href="https://steamcommunity.com/profiles/76561199529472278" target="_blank" class="killer">[ADMIN] Lil Ateszko</a>
-          
-                  <div class="headshot"><img src="img/self.png" style="margin-top: 3px;" ></div>
-          
-                  <a style="margin-left: 9.5121111111111111111111111px; margin-right: 0;" href="https://steamcommunity.com/profiles/76561199529472278" target="_blanke" class="killer">[ADMIN] Lil Ateszko</a>
-              </div>
+            <div class="killFeed">
+              <a href="https://steamcommunity.com/profiles/76561199529472278" target="_blank" class="killer">[ADMIN] Lil
+                Ateszko</a>
+
+              <div class="headshot"><img src="img/self.png" style="margin-top: 3px;"></div>
+
+              <a style="margin-left: 9.5121111111111111111111111px; margin-right: 0;"
+                href="https://steamcommunity.com/profiles/76561199529472278" target="_blanke" class="killer">[ADMIN] Lil
+                Ateszko</a>
+            </div>
           </div>
           <div class="container">
-              <div class="killFeed">
-                  <a href="" class="killed" title="[Tulaj]" style="margin-right: 10px;">[Tulaj] Gold_dt</a>
-                  <div class="weapon awp"></div>
-                  <div class="ns true" style="margin-right: 2px;"></div>
-                  <div class="wallbang true"></div>
-                  <div class="headshot true"></div>
-                  <a href="" class="killer"><span style="margin-right: 4px; margin-left: 9.5121111111111111111111111px;">[Tulaj]</span> ᔕᑌᗷᑕOᗪEᖇ</a>
-              </div>
+            <div class="killFeed">
+              <a href="" class="killed" title="[Tulaj]" style="margin-right: 10px;">[Tulaj] Gold_dt</a>
+              <div class="weapon awp"></div>
+              <div class="ns true" style="margin-right: 2px;"></div>
+              <div class="wallbang true"></div>
+              <div class="headshot true"></div>
+              <a href="" class="killer"><span
+                  style="margin-right: 4px; margin-left: 9.5121111111111111111111111px;">[Tulaj]</span> ᔕᑌᗷᑕOᗪEᖇ</a>
+            </div>
           </div>
           <div class="container">
-              <div class="killFeed">
-                  <a href="https://steamcommunity.com/profiles/76561198077043173" class="killed">[ADMIN] pepeL</a>
-                  <div class="weapon ak47"></div>
-                  <div class="headshot true"></div>
-          
-                  <a href="https://steamcommunity.com/profiles/76561198828204167" class="killed" target="_blank" title="0.5 centi scoope">[ADMIN] Tajszon</a>
-              </div>
+            <div class="killFeed">
+              <a href="https://steamcommunity.com/profiles/76561198077043173" class="killed">[ADMIN] pepeL + [MEMBER]
+                <span style="margin-right: 4px;">Koko</span></a>
+              <div class="weapon ak47"></div>
+              <div class="headshot true"></div>
+
+              <a href="https://steamcommunity.com/profiles/76561198828204167" class="killed" target="_blank"
+                title="0.5 centi scoope">[ADMIN] Tajszon</a>
+            </div>
           </div>
           <div class="container">
-              <div class="killFeed">
-                  <a href="https://steamcommunity.com/profiles/76561199079638970/" class="killer" target="_blank">[ADMIN] [SzurikátaPeek] Atankx</a>
-                  <div class="weapon awp"></div>
-                  <div class="headshot true"></div>
-                  <div class="wallbang true"></div>
-                  <a href="https://steamcommunity.com/profiles/76561199220585559" class="killed" target="_blank">[VIP] DOOM CAT [BUKTA]</a>
-              </div>
+            <div class="killFeed">
+              <a href="https://steamcommunity.com/profiles/76561199079638970/" class="killer" target="_blank">[ADMIN]
+                [SzurikátaPeek] Atankx</a>
+              <div class="weapon awp"></div>
+              <div class="headshot true"></div>
+              <div class="wallbang true"></div>
+              <a href="https://steamcommunity.com/profiles/76561199220585559" class="killed" target="_blank">[VIP] DOOM
+                CAT [BUKTA]</a>
+            </div>
           </div>
         </div>
       </section>
@@ -1369,6 +1482,7 @@
     })();
 
   </script>
+
   <footer>
     <div class="collapse bg-dark" id="navbarHeader">
       <div class="container">

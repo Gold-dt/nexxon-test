@@ -75,7 +75,7 @@ body{
     width:100%;
     z-index:123;
     padding-bottom:120px;
-    background-color: black;
+    /*background-color: black;*/
     color: white;
     /*background: rgb(150,28,7);*/
     /*background: linear-gradient(90deg, rgba(150,28,7,1) 0%, rgba(0,0,0,1) 100%);*/
