@@ -1046,93 +1046,123 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 kartya">
-          <div class="egyéb sticky-md-top">
-            <h3>Elterjedés</h3>
-            <p class="bold font-style">Európa</p>
+        <style>
+          @import url('https://fonts.googleapis.com/css?family=Raleway:200');
+  
+  
+          #box {
+              color: white;
+          }
+  
+          .gradient-border {
+              --borderWidth: 3px;
+              background: #1D1F20;
+              position: relative;
+              border-radius: var(--borderWidth);
+          }
+          .row{
+            --bs-gutter-x: 0 !important;
+          }
+          .gradient-border:after {
+              content: '';
+              position: absolute;
+              top: calc(-1 * var(--borderWidth));
+              left: calc(-1 * var(--borderWidth));
+              height: calc(100% + var(--borderWidth) * 2);
+              width: calc(100% + var(--borderWidth) * 2);
+              background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+              border-radius: calc(2 * var(--borderWidth));
+              z-index: -1;
+              -webkit-animation: animatedgradient 3s ease alternate infinite;
+              animation: animatedgradient 3s ease alternate infinite;
+              background-size: 300% 300%;
+          }
+  
+  
+          @-webkit-keyframes animatedgradient {
+              0% {
+                  background-position: 0% 50%;
+              }
+  
+              50% {
+                  background-position: 100% 50%;
+              }
+  
+              100% {
+                  background-position: 0% 50%;
+              }
+          }
+  
+  
+          @keyframes animatedgradient {
+              0% {
+                  background-position: 0% 50%;
+              }
+  
+              50% {
+                  background-position: 100% 50%;
+              }
+  
+              100% {
+                  background-position: 0% 50%;
+              }
+          }
+      </style>
+        <div class="col-md-4 kartya gradient-border" id="box">
+          <div class="sticky-md-top">
+            <h3 class="text-center">Szerver Információk</h3>
+            <p class="bold font-style text-center" style="margin-right: 40px;">Európa</p>
             <ul>
-              <li><span class="font-style mx-2">Franciaország</span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/wiki/Franciaorsz%C3%A1g">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                    <path
-                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                  </svg>
-                </a><span class="mx-2 badge bg-secondary">(crêpe)</span>
-                <p class="text-styles">
-                  Franciaországban élesztővel és sok tojással alaposan kikevert tésztát használnak. Sütés után pikáns,
-                  édes töltelékekkel töltik. A crêpe ropogós, vékony tésztájú. A vendégek összehajtva majd felgöngyölve
-                  kapják, pikáns, forró, édes likőrös vagy citromos vajjal leöntve.</p>
+              <li> <span>Server ip: <span> 95.138.193.253:30002</span></span>
               </li>
-              <li><span class="mx-2 font-style">Lengyelország</span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/wiki/Lengyelorsz%C3%A1g">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+              <li><span class="mx-2 font-style"
+                  style="color: rgb(127, 172, 255); text-decoration: none; font-size: 20px;">Discord</span><a
+                  class="txt-decoff" target="_blank" href="https://discord.gg/2Y6CSsPspF">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 640 512">
                     <path
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                   </svg>
-                </a><span class="mx-2 badge bg-secondary">(naleśniki)</span>
+                </a><span class="mx-2 badge bg-secondary">(community)</span>
                 <p></p>
               </li>
-              <li><span class="mx-2 font-style">Magyarország</span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">
+
+              <li><span class="mx-2 font-style"
+                  style="color: rgb(24, 190, 24); font-size: 20px; text-decoration: none;"> Magyarország<img
+                    src="/img/hun-fleg.png" height="20px" style="margin-left: 12px;"></span><a class="txt-decoff"
+                  target="_blank" href="https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g">
                   <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
                     <path
                       d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
                   </svg>
-                </a><span class="mx-2 badge bg-secondary">(magyar)</span>
-                <p class="font-styles">Magyarországra jellemző a nagyon vékonyra sütött tészta, amit tojásból liszttel,
-                  tejjel, csipetnyi sóval, esetleg pici cukorral és szódavízzel kevernek ki. Ízlés szerint kevéske
-                  sütőpor vagy élesztő is kerülhet bele, és az általában alkalmazott étolaj helyett készülhet olvasztott
-                  vajban is. Tölteléke változatos: cukros kakaópor, lekvár, (mazsolás) túró, fahéjas cukor.</p>
-              </li>
-              <li><span class="mx-2 font-style">Ausztria</span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/wiki/Ausztria">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                    <path
-                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                  </svg>
-                </a><span class="mx-2 badge bg-secondary">(Palatschinken)</span>
-                <p></p>
-              </li>
-              <li><span class="mx-2 font-style">Dél-Németország</span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                    <path
-                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                  </svg>
-                </a><span class="mx-2 badge bg-secondary">(Pfannkuchen)</span>
-                <p></p>
-              </li>
-              <li><span class="mx-2 font-style">Észak-Németország </span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/w/index.php?title=%C3%89szak-N%C3%A9metorsz%C3%A1g&action=edit&redlink=1">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                    <path
-                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                  </svg>
-                </a><span class="mx-2 badge bg-secondary">(Eierkuchen)</span>
-                <p></p>
-              </li>
-              <li><span class="mx-2 font-style">Oroszország</span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/wiki/Oroszorsz%C3%A1g">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                    <path
-                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                  </svg>
-                </a><span class="mx-2 badge bg-secondary">(blini)</span>
-                <p></p>
+                </a><span class="mx-2 badge bg-secondary">(Lokáció)</span>
+                <p class="font-styles text-white">
+
+                </p>
               </li>
             </ul>
-            <p class="bold font-style">Ausztrália</p>
-            <ul>
-              <li><span class="mx-2 font-style">Ausztrália</span><a class="txt-decoff" target="_blank"
-                  href="https://hu.wikipedia.org/wiki/Ausztr%C3%A1lia_(orsz%C3%A1g)">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
-                    <path
-                      d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z" />
-                  </svg>
-                </a><span class="mx-2 badge bg-secondary">(pikelet)</span>
-                <p></p>
-              </li>
-            </ul>
+            <p style="margin-left: 10px;" class="inf">
+              <img src="img/logo.png" alt=""> Szerver info <img src="img/logo.png" alt="">
+              <br>
+              <br><span class="text-center">[HUN] NexxoN | AWP szerver </span><br>
+              <span class="pg" style="margin-left: 5%;">CS:2</span>
+              <br>
+
+              <span style="margin-left: 9%;"> IP: </span>
+              <br>
+
+              <span style="margin-left: 6%;">95.138.193.253:30002</span> <br>
+
+            </p>
+            <iframe class="mrg"
+              src="https://cache.gametracker.com/components/html0/?host=95.138.193.253:30002&bgColor=333333&fontColor=cccccc&titleBgColor=222222&titleColor=63edf2&borderColor=555555&linkColor=ffcc00&borderLinkColor=222222&showMap=1&currentPlayersHeight=100&showCurrPlayers=1&topPlayersHeight=100&showTopPlayers=1&showBlogs=0&width=240"
+              frameborder="0" scrolling="no" width="100%" height="536"></iframe>
+            <style>
+              @media only screen and (min-width: 600px) {
+                .mrg {
+                  margin-left: 15%;
+                }
+              }
+            </style>
           </div>
         </div>
       </div>
