@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html {
+            overflow: -moz-scrollbars-none;
+            scrollbar-width: none;
+        }
+
+        
+        
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+
+        #progressBarContainer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+
+        #progressBar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 10px;
+            background: linear-gradient(to top, violet, red);
+            height: 0;
+            opacity: 0;
+        }
+    </style>
+    <div id="progressBar"></div>
+    <div id="progressBarContainer"></div>
+    <h1>Welcome.</h1>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+        Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+        Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+        Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+        Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+        Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+        Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+    </p>
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur
+        provident eveniet veritatis ipsa id consectetur ab tenetur dolores eaque.
+        Temporibus laboriosam cum corporis amet doloremque animi aut ipsa ea a?
+    </p>
+    <p>lorem*4125541</p>
+    <script>
+        const progressBar = document.querySelector("#progressBar");
+        let totalPageHeight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = () => {
+            let newProgressHeight = (window.pageYOffset / totalPageHeight) * 100;
+            progressBar.style.height = `${newProgressHeight}%`;
+            progressBar.style.opacity = `${newProgressHeight}%`;
+        };
+
+    </script>
+</body>
+
+</html>
