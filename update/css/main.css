@@ -124,6 +124,11 @@ a.dropdown-item:hover {
 }
 .szab {
   border-left: red 5px solid !important;
+  overflow-y: scroll;
+  height: 300px;
+  
+  overflow-y: scroll;
+  scrollbar-color: rgb(0, 0, 0) rgb(255, 2, 2);
 }
 .navbar-toggler-icon {
   background-image: url(/IMG/up-arrow-svgrepo-com.svg) !important;

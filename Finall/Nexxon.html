@@ -55,22 +55,19 @@
         <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown" style="background-color: transparent;">
           <ul class="navbar-nav mx-auto ">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Főoldal.html">Érdekességek</a>
+              <a class="nav-link" href="#rule">Szabályzat</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://hu.wikipedia.org/wiki/%C3%89dess%C3%A9gek">Szabályzat</a>
+              <a class="nav-link" href="#commands">Parancsok</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="edessegek/palacsinta/temp/temp.html">Parancsok</a>
+              <a class="nav-link" href="#serverinfo">Szerver Info</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/admin-panel/index.html">Admin</a>
+              <a class="nav-link" href="#vip">VIP Rangok</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/test.html">Test</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin-panel/index.html">Server</a>
+              <a class="nav-link" href="Server/Menu.html">Server</a>
             </li>
           </ul>
         </div>
@@ -203,7 +200,7 @@
               szerepelt – már 1439-ben lehetett olvasni. A palacsintakészítés első magyar nyelvű leírása az erdélyi
               fejedelmi udvar főszakácsának a 16. század végén írt szakácskönyvében olvasható.</p>
           </div>
-          <div class="kard szab mt-5" style="background-color: black;">
+          <div class="kard szab mt-5" id="rule">
             <h1>Szabályzat</h1>
             <hr>
             <p>
@@ -218,43 +215,32 @@
               szerepelt – már 1439-ben lehetett olvasni. A palacsintakészítés első magyar nyelvű leírása az erdélyi
               fejedelmi udvar főszakácsának a 16. század végén írt szakácskönyvében olvasható.</p>
           </div>
-          <p class="text-body bold">Receptek : </p>
+          <p class="text-body bold VIP" id="vip"><img width="50" height="50" src="https://img.icons8.com/plasticine/100/vip.png" alt="vip"/>VIP Rangok <img width="50" height="50" src="https://img.icons8.com/plasticine/100/vip.png" alt="vip"/></p>
           <div class="accordion m-4" id="accordionExample">
             <div class="accordion-item egyed">
               <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button egyed2 text-light" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button VIP-Item text-light" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Recept #1
+                  VIP 1
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                 data-bs-parent="#accordionExample">
                 <div class="accordion-body  egyed1 text-white-50">
-                  <p class="text-center"><strong>Hagyományos Palacsinta</strong></p>
+                  <p class="text-center"><strong>Hagyományos VIP</strong></p>
                   <div class="row">
                     <div class="col">
-                      <p><code>Hozzávalók:</code> </p>
+                      <p><code>Ujdonságok:</code> </p>
                       <ul>
-                        <li>20 dkg finomliszt</li>
-                        <li>4,5 dl tej</li>
-                        <li>2 db L-es tojás</li>
-                        <li>1 ek cukor</li>
-                        <li>1 ek étolaj</li>
-                        <li>1 nagy csipet só</li>
-                        <li>olaj a sütéshez</li>
+                        <li>Health: 120</li>
+                        <li>Nagyobb ugrás</li>
+                        <li>VIP tag</li>
+                        <li>Healthshot: 1</li>
                       </ul>
                     </div>
                     <div class="col">
-                      <p><code>Elkészítés:</code></p>
-                      <span>A tojásokat verjük fel egy nagyobb tálban. Szórjuk hozzá a lisztet, a cukrot, a sót és az
-                        olajat, majd dolgozzuk össze alaposan. Ezután fokozatosan adagoljuk hozzá a tejet is, miközben
-                        igyekezzünk szép simára keverni. A tésztát tegyük félre 15-20 percre pihenni, majd hevítsünk egy
-                        serpenyőben olajat, és süssük aranybarnára a palacsinták mindkét oldalát.</span>
-                    </div>
-                  </div>
-                  <div class="card bg-dark">
-                    <div class="card-body bg-dark">
-                      <img src="img/r1.png" class="img-fluid" alt="">
+                      <p><code>Információk</code></p>
+                      <span>Ezt a rangot in </span>
                     </div>
                   </div>
                 </div>
@@ -262,9 +248,9 @@
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed egyed2" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed VIP-Item" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Recept #2
+                  VIP 2
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
@@ -295,19 +281,15 @@
                       </span>
                     </div>
                   </div>
-                  <div class="card bg-dark">
-                    <div class="card-body bg-dark">
-                      <img src="img/r2.png" class="img-fluid" alt="">
-                    </div>
-                  </div>
+                  
                 </div>
               </div>
             </div>
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed egyed2" type="button" data-bs-toggle="collapse"
+                <button class="accordion-button collapsed VIP-Item" type="button" data-bs-toggle="collapse"
                   data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Recept #3
+                  VIP 3
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
@@ -341,10 +323,48 @@
                 </div>
               </div>
             </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed VIP-Item" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                  VIP 4
+                </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body egyed1 text-white-50">
+                  <p class="text-center"><strong>Spenótos palacsinta</strong></p>
+                  <div class="row">
+                    <div class="col">
+                      <p><code>Hozzávalók:</code> </p>
+                      <ul>
+                        <li>200 gramm friss spenót</li>
+                        <li>2 tojás</li>
+                        <li>25 dkg liszt</li>
+                        <li>3 dl tej</li>
+                        <li>3 dl szódavíz</li>
+                        <li>4 ek olaj</li>
+                        <li>1 kk só</li>
+                        <li>olaj a sütéshez</li>
+                      </ul>
+                    </div>
+                    <div class="col">
+                      <p><code>Elkészítés:</code></p>
+                      <span class="z">A spenótot forró sós vízben fonnyasszuk meg, majd egy botmixer segítségével
+                        pürésítsük. Ha kicsit kihűlt, adagoljuk hozzá a többi hozzávalót, és keverjük csomómentesre.
+                        Pici olajjal megkent serpenyőben süssük ki palacsintákat. Fogyasztás előtt kenjük meg őket
+                        fokhagymás tejföllel vagy zsiradékon megfuttatott fokhagymával. Természetesen megtölthetjük sült
+                        zöldségekkel, sajttal, tükörtojással, salátával, vagy bármivel, amihez kedvünk szottyan.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-md-4 kartya gradient-border" id="box">
-          <div class="sticky-md-top">
+          <div class="sticky-md-top" id="serverinfo">
             <h3 class="text-center">Szerver Információk</h3>
             <p class="bold font-style text-center" style="margin-right: 40px;">Európa</p>
             <ul>
