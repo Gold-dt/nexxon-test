@@ -1,0 +1,167 @@
+
+body {
+	font-family:  "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+	background: hsl(0 0% 4%) !important;
+	color: hsl(0 0% 100%);
+    overflow: hidden;
+}
+
+body::before {
+	--line: hsl(0 0% 95% / 0.15);
+	--size: 60px;
+	content: "";
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	background:
+		linear-gradient(90deg, var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size),
+		linear-gradient(var(--line) 1px, transparent 1px var(--size)) 50% 50% / var(--size) var(--size);
+	mask: linear-gradient(-15deg, transparent 30%, white);
+	top: 0;
+	z-index: -1;
+	transform: translate3d(0, 0, -100vmin);
+}
+
+.feather {
+  width: 16px;
+  height: 16px;
+  vertical-align: text-bottom;
+}
+
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  /* rtl:raw:
+  right: 0;
+  */
+  bottom: 0;
+  /* rtl:remove */
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  padding: 48px 0 0; /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    padding-top: 80px;
+  }
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: .5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: rgb(146, 144, 144);
+}
+
+
+
+.sidebar .nav-link.active {
+  color: red;
+}
+
+.sidebar .nav-link.active:hover {
+  color: rgb(255, 94, 0);
+}
+
+.sidebar .nav-link:hover .feather,
+.sidebar .nav-link.active .feather {
+  color: inherit;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/*
+ * Navbar
+ */
+ .nav-link{
+  padding-top: 25px;
+ }
+ .nav-link:hover{
+  color: yellow;
+ }
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar .form-control {
+  padding: .75rem 1rem;
+  border-width: 0;
+  border-radius: 0;
+}
+
+.form-control-dark {
+  color: #fff;
+  background-color: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .1);
+}
+
+.form-control-dark:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+.discord{
+  background: #7289da;
+  color: black !important;
+  border-radius: 40px;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  margin: 10px;
+}
+.discord:hover{
+  color: white !important;
+}
+.discord:hover{
+  border: 1px white solid;
+}
+
+.steam{
+  background-color: #08248b;
+  border-radius: 40px;
+  text-align: center;
+  padding: 15px;
+  margin: 10px;
+}
+.steam:hover{
+  border: 1px white solid;
+}
+.steam>a{
+  color: white;
+  text-decoration: none;
+}
+.steam>a:hover{
+  color: white !important;
+}
+.info{
+  background-color: yellow;
+  padding: 20px;
+  color: black;
+  border-radius: 40px;
+  margin: 10px;
+  
+}
